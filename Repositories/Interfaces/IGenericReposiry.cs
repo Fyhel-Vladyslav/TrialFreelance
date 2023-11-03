@@ -1,0 +1,13 @@
+﻿using System.Collections.Generic;
+
+namespace TrialFreelance.Repositories.Interfaces
+{
+    public interface IGenericRepository<TEntity> where TEntity : class
+    {
+        TEntity FindById(int id);
+        IEnumerable<TEntity> GetAll();
+        void Add(TEntity item);
+        void Delete(TEntity item);
+        void Update(TEntity item);
+    }
+}
