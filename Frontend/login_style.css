@@ -1,0 +1,61 @@
+body {
+    background: url(images/login_register_background.jpg);
+    background-size: 100% 100vh;
+    background-repeat: no-repeat;
+    background-color: rgba(12,16,21,255);
+    overflow-x: hidden;
+}
+
+.gradient{
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(12, 16, 21, 0.9) 0%, rgba(12, 16, 21, 0.97) 60%);
+    background-position-y: -230px;
+
+}
+
+.main_form {
+    width: 400px;
+    height: 400px;
+    background-color:#0d1117;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    margin-left: -200px;
+    margin-top: -10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header_login{
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    background: -webkit-linear-gradient(300deg, rgba(255,72,0,1) 0%, rgba(0,255,175,1) 180%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.lable_login{
+    color: rgb(158, 158, 158);
+    font-weight: bold;
+}
+
+.input_login{
+    background-color: #0d1117;
+}
+
+.input_box{
+    width: 90%;
+    margin: 10px 10px 0px 10px;
+}
+
+.btn_login{
+    font-weight: bolder;
+    font-size: 18px;
+    width: 100px;
+    height: 50px;
+}
