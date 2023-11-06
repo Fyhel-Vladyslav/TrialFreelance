@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TrialFreelance.Models;
 
 namespace TrialFreelance.Repositories.Interfaces
 {
@@ -6,8 +7,8 @@ namespace TrialFreelance.Repositories.Interfaces
     {
         TEntity FindById(int id);
         IEnumerable<TEntity> GetAll();
-        void Add(TEntity item);
-        void Delete(TEntity item);
-        void Update(TEntity item);
+        void Add(TEntity model);
+        void Delete(Order model);
+        void Update(TEntity model);
     }
 }

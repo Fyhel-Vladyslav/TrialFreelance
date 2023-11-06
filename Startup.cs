@@ -27,7 +27,7 @@ namespace TrialFreelance
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-               options.UseSqlServer(
+               options.UseNpgsql(
                    Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<DbUser, DbRole>(options =>
@@ -39,11 +39,10 @@ namespace TrialFreelance
             })
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
-            // services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
-            //services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IPreOrderRepository, PreOrderRepository>();
             services.AddRazorPages();
-            // services.AddAutoMapper(typeof(Startup), typeof(MapperContext));
+            services.AddAutoMapper(typeof(Startup), typeof(MapperContext));
 
             services.AddControllersWithViews();
         }

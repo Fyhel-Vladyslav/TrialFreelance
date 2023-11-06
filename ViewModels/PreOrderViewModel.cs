@@ -1,6 +1,6 @@
 ﻿namespace TrialFreelance.ViewModels
 {
-    public class OrderViewModel
+    public class PreOrderViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

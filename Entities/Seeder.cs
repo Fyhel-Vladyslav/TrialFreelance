@@ -49,13 +49,13 @@ namespace TrialFreelance.Entities
                         user = new DbUser
                         {
                             Email = email,
-                            FirstName = "нейм",
-                            LastName = "снейм",
+                            FirstName = "Валадій",
+                            LastName = "Фугас",
                             UserName = email,
                             PhoneNumber = "+380476758769",
-                            Birthday = "97-98-0990",
+                            Birthday = "12-05-1991",
                             FinishedOrders = 7,
-                            GitHubPageLink = "johijk"
+                            GitHubPageLink = "https//github.com"
                         };
                         result = manager.CreateAsync(user, "@123Admin").Result;
                         result = manager.AddToRoleAsync(user, "Admin").Result;
@@ -69,24 +69,48 @@ namespace TrialFreelance.Entities
                         user = new DbUser
                         {
                             Email = email,
-                            FirstName = "ertsexc",
-                            LastName = "снейм",
+                            FirstName = "Рік",
+                            LastName = "Санчез",
                             UserName = email,
-                            PhoneNumber = "+380476758769",
-                            Birthday = "97-98-0990",
+                            PhoneNumber = "+380493438481",
+                            Birthday = "19-12-4995",
                             FinishedOrders = 7,
-                            GitHubPageLink = "johijk"
+                            GitHubPageLink = "https//github.com"
                         };
                         result = manager.CreateAsync(user, "@123Manager").Result;
                         result = manager.AddToRoleAsync(user, "Manager").Result;
 
                         context.SaveChanges();
                     }
-                    var orders = new List<Order>
+
+                    email = "user@gmail.com";
+                    user = await manager.FindByEmailAsync(email);
+                    if (user == null)
+                    {
+                        user = new DbUser
+                        {
+                            Email = email,
+                            FirstName = "Нейм",
+                            LastName = "Снейм",
+                            UserName = email,
+                            PhoneNumber = "+380476758769",
+                            Birthday = "97-98-0990",
+                            FinishedOrders = 7,
+                            GitHubPageLink = "johijk"
+                        };
+                        result = manager.CreateAsync(user, "@123User").Result;
+                        result = manager.AddToRoleAsync(user, "User").Result;
+
+                        context.SaveChanges();
+                    }
+
+                    if (!context.Orders.Any())
+                    {
+                        var orders = new List<Order>
                 {
                     new Order
                     {
-                        
+
                         Name = "Новий сайт",
                         Difficulty = 4,
                         Status = 1,
@@ -125,8 +149,9 @@ namespace TrialFreelance.Entities
                         Description = "tasks"
                     }
                 };
-                    context.Orders.AddRange(orders);
-                    context.SaveChanges();
+                        context.Orders.AddRange(orders);
+                        context.SaveChanges();
+                    }
                 }
             }
             catch (Exception)

@@ -1,8 +1,31 @@
-﻿@{
+﻿@using TrialFreelance.ViewModels;
+@model IEnumerable<PreOrderViewModel>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@foreach(var item in Model)
+{
+    <div>
+        @item.Status
+    </div>
+}
+    <div class="orders" style="margin-top: 50px;">
+        <h1>Замовлення</h1>
+        
+        <!-- Перший блок замовлення -->
+        <div class="order">
+		<h2>Завдання 1</h2>
+			<div class="orderPart">
+	            <p class="org">Складність: Середня</p>
+            	<p>Тип: Веб-розробка</p>
+            	<p>Наявність бази даних: Так</p>
+			</div>
+       		<div class="orderPart" style="width:60%">
+       			<p>
+                       
+                </p>
+       		</div> 
+        </div>
+    </div>

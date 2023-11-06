@@ -25,9 +25,9 @@ namespace TrialFreelance.Repositories.Implements
             dbCon.SaveChanges();
         }
 
-        public void Delete(Order item)
+        public void Delete(Order model)
         {
-            dbCon.Orders.Remove(item);
+            dbCon.Orders.Remove(model);
             dbCon.SaveChanges();
         }
 

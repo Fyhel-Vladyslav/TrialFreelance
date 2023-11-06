@@ -8,7 +8,7 @@ namespace TrialFreelance
     {
         public MapperContext()
         {
-            CreateMap<OrderViewModel, Order>();
+            CreateMap<Order, PreOrderViewModel>();
 
         }
     }

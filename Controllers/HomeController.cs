@@ -9,16 +9,17 @@ using TrialFreelance.Data;
 using TrialFreelance.Models;
 using TrialFreelance.Repositories.Implements;
 using TrialFreelance.Repositories.Interfaces;
+using TrialFreelance.ViewModels;
 
 namespace TrialFreelance.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IOrderRepository orderRepository;
-       // private readonly ApplicationDbContext dbcon;
+        private readonly IPreOrderRepository orderRepository;
+        // private readonly ApplicationDbContext dbcon;
 
-        public HomeController(ILogger<HomeController> logger, IOrderRepository orderRepository)
+        public HomeController(ILogger<HomeController> logger, IPreOrderRepository orderRepository)
         {
             _logger = logger;
             this.orderRepository = orderRepository;
@@ -28,7 +29,7 @@ namespace TrialFreelance.Controllers
         {
             var orders = orderRepository.GetAll();
 
-            return View(orders);
+             return View(orders);
         }
 
         public IActionResult Privacy()
