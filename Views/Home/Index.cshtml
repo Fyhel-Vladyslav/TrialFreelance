@@ -1,31 +1,86 @@
 ﻿@using TrialFreelance.ViewModels;
 @model IEnumerable<PreOrderViewModel>
-
 @{
     ViewData["Title"] = "Home Page";
 }
+<style>
 
-@foreach(var item in Model)
-{
-    <div>
-        @item.Status
-    </div>
-}
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+        text-align: right;
+    }
+
+    /* Стилі для замовлень */
+    .orders {
+        padding: 50px;
+    }
+
+    .order {
+        width: 100%;
+        display: flex;
+        border: 1px solid #ddd;
+        margin: 0; 
+        padding: 20px;
+    }
+
+    .orderPart {
+        margin: 20px;
+        float: left;
+    }
+
+    .link_exist {
+        width:8px;
+        height:8px;
+    }
+
+    .exist_True {
+background-color:green;
+    }
+
+    .exist_False {
+        background-color: red;
+    }
+
+    .difficulty_1{
+        background-color: lightgreen;
+    }
+
+    .difficulty_2 {
+        background-color: yellow;
+    }
+
+    .difficulty_3 {
+        background-color: darkorange;
+    }
+
+    .difficulty_4 {
+        background-color: red;
+    }
+</style>
+
+    
     <div class="orders" style="margin-top: 50px;">
         <h1>Замовлення</h1>
-        
+    @foreach (var item in Model)
+    {
         <!-- Перший блок замовлення -->
         <div class="order">
-		<h2>Завдання 1</h2>
+            <h2>@item.Name</h2>
 			<div class="orderPart">
-	            <p class="org">Складність: Середня</p>
-            	<p>Тип: Веб-розробка</p>
-            	<p>Наявність бази даних: Так</p>
+            <p class="difficulty_@item.Difficulty">Складність</p>
+                <p class="exist_@string.IsNullOrEmpty(item.ExampleLink) link_exist"></p>Приклад
+                <p class="exist_@string.IsNullOrEmpty(item.DbLink) link_exist"></p>База даних
+                <p class="exist_@string.IsNullOrEmpty(item.GitHubLink) link_exist"></p>Приклад
 			</div>
        		<div class="orderPart" style="width:60%">
-       			<p>
-                       
-                </p>
+                @item.MainTask
        		</div> 
         </div>
+    }
     </div>
