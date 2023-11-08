@@ -221,3 +221,10 @@ D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreel
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\ref\TrialFreelance.dll
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\bin\Debug\net5.0\Npgsql.dll
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\bin\Debug\net5.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\test.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\Logout.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\ListUsers.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\EditUser.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\ManageUser.cshtml.g.cs

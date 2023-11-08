@@ -7,6 +7,5 @@ namespace TrialFreelance.Repositories.Interfaces
 {
     public interface IOrderRepository: IGenericRepository<Order>
     {
-        void Delete(Order model);
     }
 }

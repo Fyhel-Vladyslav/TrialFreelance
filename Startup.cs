@@ -65,6 +65,7 @@ namespace TrialFreelance
             
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -73,7 +74,7 @@ namespace TrialFreelance
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-            Seeder.SeedDataAsync(app.ApplicationServices, env, this.Configuration);
+            //Seeder.SeedDataAsync(app.ApplicationServices, env, this.Configuration);
 
         }
     }

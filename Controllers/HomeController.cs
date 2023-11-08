@@ -17,7 +17,6 @@ namespace TrialFreelance.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IPreOrderRepository orderRepository;
-        // private readonly ApplicationDbContext dbcon;
 
         public HomeController(ILogger<HomeController> logger, IPreOrderRepository orderRepository)
         {
