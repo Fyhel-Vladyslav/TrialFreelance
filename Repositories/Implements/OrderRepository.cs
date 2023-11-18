@@ -13,10 +13,12 @@ namespace TrialFreelance.Repositories.Implements
     public class OrderRepository : IOrderRepository
     {
         private ApplicationDbContext dbCon;
+        private DbContextOptions<ApplicationDbContext> options;
 
-        public OrderRepository(ApplicationDbContext context)             
+        public OrderRepository(ApplicationDbContext context, DbContextOptions<ApplicationDbContext> options)             
         {
             dbCon = context;
+            this.options = options;
         }
 
         public void Add(Order item)
@@ -39,6 +41,11 @@ namespace TrialFreelance.Repositories.Implements
         public IEnumerable<Order> GetAll()
         {
             return dbCon.Orders;
+        }
+
+        public List<string> GetNames()
+        {
+            return new ApplicationDbContext(options).Orders.Select(p=>p.Name).ToList();
         }
 
         public void Update(Order order)
