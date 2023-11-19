@@ -19,7 +19,6 @@ namespace TrialFreelance.ViewModels
         public string GitHubLink { get; set; }
         public string DbLink { get; set; }
         public string SecondaryTasks { get; set; }
-        
         public string MainTask { get; set; }
         public string Description { get; set; }
     }

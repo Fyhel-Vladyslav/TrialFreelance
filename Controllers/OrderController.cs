@@ -26,6 +26,8 @@ namespace TrialFreelance.Controllers
         }
         public IActionResult OrdersList()
         {
+                if (User.IsInRole("Admin"))
+                    ViewBag.Role = "Admin";
             return View(preOrderRepository.GetAll());
         }
 
@@ -77,15 +79,15 @@ namespace TrialFreelance.Controllers
                 };
 
                 orderRepository.Add(order);
-                return RedirectToAction("Order", "MyOrders");
+                return RedirectToAction("Order", "UserOrders");
             }
             ViewBag.Error = "Model is invalid";
             return View("Error");
         }
 
-
+  
         [HttpGet]
-        public IActionResult EditOrder(int id)//not implement
+        public IActionResult EditOrder(int id)
         {
             var order = orderRepository.FindById(id);
 
@@ -114,7 +116,7 @@ namespace TrialFreelance.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditOrder(EditOrderViewModel model)//not implement
+        public IActionResult EditOrder(EditOrderViewModel model)
         {
             var order = orderRepository.FindById(model.Id);
 
@@ -143,7 +145,7 @@ namespace TrialFreelance.Controllers
             }
         }
 
-        public IActionResult DeleteOrder(int Id)//not implement
+        public IActionResult DeleteOrder(int Id)
         {
             var order = orderRepository.FindById(Id);
 

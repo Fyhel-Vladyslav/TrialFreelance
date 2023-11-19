@@ -43,7 +43,7 @@ namespace TrialFreelance.Controllers
                 {
                     await userManager.AddToRoleAsync(user, "User");
                     await signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("OrdersList", "Order");
                 }
                 foreach (var error in result.Errors)
                 {
@@ -78,7 +78,7 @@ namespace TrialFreelance.Controllers
                 if (identityResult.Succeeded)
                 {
                     if (Model.ReturnUrl == null || Model.ReturnUrl == "/")
-                        return RedirectToAction("Order", "OrdersList");
+                        return RedirectToAction("OrdersList", "Order");
                     else
                         return Redirect(Model.ReturnUrl);
 
@@ -104,7 +104,7 @@ namespace TrialFreelance.Controllers
         {
 
             await signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("OrdersList", "Order");
         }
 
         [HttpGet]
@@ -158,7 +158,7 @@ namespace TrialFreelance.Controllers
                 var result = await userManager.UpdateAsync(user);
 
                 if (result.Succeeded)
-                { return RedirectToAction("Index", "Home"); }
+                { return RedirectToAction("OrdersList", "Order"); }
 
                 foreach (var error in result.Errors)
                 {

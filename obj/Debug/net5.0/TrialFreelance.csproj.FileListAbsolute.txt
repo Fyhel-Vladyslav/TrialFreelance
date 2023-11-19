@@ -230,3 +230,4 @@ D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreel
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Order\Order.cshtml.g.cs
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Order\CreateOrder.cshtml.g.cs
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Order\UserOrders.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Order\EditOrder.cshtml.g.cs
