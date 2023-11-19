@@ -50,7 +50,8 @@ namespace TrialFreelance.Controllers
                     ModelState.AddModelError("", error.Description);
                 }
             }
-            return View();
+            ViewBag.Error = "Model is invalid";
+            return View("Error");
         }
 
         public IActionResult test()
@@ -77,7 +78,7 @@ namespace TrialFreelance.Controllers
                 if (identityResult.Succeeded)
                 {
                     if (Model.ReturnUrl == null || Model.ReturnUrl == "/")
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Order", "OrdersList");
                     else
                         return Redirect(Model.ReturnUrl);
 

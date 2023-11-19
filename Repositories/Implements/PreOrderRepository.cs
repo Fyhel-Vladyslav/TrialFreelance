@@ -12,26 +12,29 @@ namespace TrialFreelance.Repositories.Implements
 {
     public class PreOrderRepository : IPreOrderRepository
     {
-        private ApplicationDbContext dbCon;
         private readonly IMapper mapper;
+        private readonly IOrderRepository iOrderRepository;
 
-        public PreOrderRepository(ApplicationDbContext context, IMapper mapper)             
+        public PreOrderRepository(IMapper mapper, IOrderRepository iOrderRepository)             
         {
-            dbCon = context;
             this.mapper = mapper;
+            this.iOrderRepository = iOrderRepository;
         }
 
         public PreOrderViewModel FindById(int id)
         {
-            return mapper.Map<PreOrderViewModel>(dbCon.Orders.Find(id)); 
+            return mapper.Map<PreOrderViewModel>(iOrderRepository.FindById(id)); 
         }
 
         public IEnumerable<PreOrderViewModel> GetAll()
         {
-            return mapper.Map<IEnumerable<PreOrderViewModel>>(dbCon.Orders);
+            return mapper.Map<IEnumerable<PreOrderViewModel>>(iOrderRepository.GetAll());
         }
 
-        
+        public IEnumerable<PreOrderViewModel> FindOrdersByUserId(int id)
+        {
+            return mapper.Map < IEnumerable < PreOrderViewModel >> (iOrderRepository.FindOrdersByUserId(id));
+        }
     }
 
 }
