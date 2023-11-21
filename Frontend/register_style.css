@@ -16,7 +16,7 @@ body {
 
 .main_form {
     width: 400px;
-    height: 380px;
+    height: 710px;
     background-color:#0d1117;
     position: absolute;
     left: 50%;
@@ -30,7 +30,7 @@ body {
     flex-direction: column;
 }
 
-.header_login{
+.header_register{
     margin-top: 20px;
     font-size: 30px;
     font-weight: bold;
@@ -39,12 +39,12 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-.lable_login{
+.lable_register{
     color: rgb(158, 158, 158);
     font-weight: bold;
 }
 
-.input_login{
+.input_register{
     background-color: #0d1117;
 }
 
@@ -53,7 +53,7 @@ body {
     margin: 10px 10px 0px 10px;
 }
 
-.btn_login{
+.btn_register{
     font-weight: bolder;
     font-size: 18px;
     width: 100px;
