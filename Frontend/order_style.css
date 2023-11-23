@@ -1,0 +1,120 @@
+body{
+    background-color: #101414
+
+}
+
+.nav_body{
+    padding-left: 1%; 
+    padding-right: 2%; 
+    margin-bottom: 1%; 
+    height: 10%; 
+    width: 100%;
+    background-color: #21262d;
+}
+
+.main_field{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.filter{
+    width: 30%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.orders{
+    width: 70%;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.order_card{
+    width: 100%;
+    background-color: #282c2c;
+    border-radius: 20px;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card_header{
+    color: white;
+    font-size: 32px;
+}
+
+.card_description{
+    width: 100%;
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgb(158, 158, 158);
+}
+
+.card_helper{
+    margin-top: 30px;
+    color: rgb(158, 158, 158);
+}
+
+.card_left{
+    width: 80%;
+}
+
+.card_right{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.text_difficalty_hard{
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(200, 0, 0);
+    border: 3px solid rgb(200, 0, 0);
+    width:fit-content;
+    padding: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 8px;
+}
+
+.text_difficalty_normal{
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(185, 125, 0);
+    border: 3px solid rgb(185, 125, 0);
+    width:fit-content;
+    padding: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 8px;
+}
+.text_difficalty_easy{
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(75, 185, 0);
+    border: 3px solid rgb(75, 185, 0);
+    width:fit-content;
+    padding: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 8px;
+}
+
+.card_btn{
+    font-size: 24px;
+    font-weight: bold;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 30px;
+}

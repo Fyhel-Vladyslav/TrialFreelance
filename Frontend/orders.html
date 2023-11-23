@@ -4,16 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Index demo</title>
+    <title>Orders</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="order_style.css" type="text/css" />
 </head>
 
 <body>
-    <div style="padding-left: 1%; padding-right: 1%; margin-bottom: 1%">
-        <nav class="navbar navbar-expand-lg bg-subtle border-bottom border-body" data-bs-theme="dark">
+    <div class="nav_body" >
+        <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
@@ -21,7 +21,7 @@
                         <path fill-rule="evenodd"
                             d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.004-.001.274-.11a.75.75 0 0 1 .558 0l.274.11.004.001 6.971 2.789Zm-1.374.527L8 5.962 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339Z" />
                     </svg>
-                    Navbar
+                    TrialFreelnce
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -41,13 +41,13 @@
                         </li>
                     </ul>
                     <form class="d-flex" role="login">
-                        <a href="#" class="nav-link link-light 
+                        <a href="login.html" class="nav-link link-light 
                             link-underline-opacity-0 
                             link-opacity-75-hover d-flex" 
                             style="align-items: center; margin-right: 10px;">
                             Login
                         </a>
-                        <a href="#" class="nav-link link-light 
+                        <a href="register.html" class="nav-link link-light 
                             link-underline-opacity-0 
                             link-opacity-75-hover 
                             focus-ring-secondary py-1 px-2 border rounded-2">
@@ -58,16 +58,59 @@
             </div>
         </nav>
     </div>
-    <div>
-        <div class="fs-1 h1" style="color: white;">Test navbar</div>
-        <h1 style="color: white;">Index</h1>
+
+    <div class="main_field">
+        <div class="filter">
+            <div style="background-color: aliceblue; width: 100%; height: 100px;"></div>
+        </div>
+        <div class="orders">
+            <div class="order_card">
+                <div class="card_left">
+                    <h1 class="card_header">Test task 1</h1>
+                    <div class="card_description">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                    </div>
+                    <div class="card_helper">
+                        Posted 1.11.2023&emsp;13:45
+                    </div>
+                </div>
+                <div class="card_right">
+                    <div class="text_difficalty_hard">Hard</div>
+                    <button type="button" class="btn btn-primary card_btn">View</button>
+                </div>
+            </div>
+            <div class="order_card">
+                <div class="card_left">
+                    <h1 class="card_header">Test task 2</h1>
+                    <div class="card_description">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                    </div>
+                    <div class="card_helper">
+                        Posted 1.11.2023&emsp;13:45
+                    </div>
+                </div>
+                <div class="card_right">
+                    <div class="text_difficalty_normal">Normal</div>
+                    <button type="button" class="btn btn-primary card_btn">View</button>
+                </div>
+            </div>
+            <div class="order_card">
+                <div class="card_left">
+                    <h1 class="card_header">Test task 3</h1>
+                    <div class="card_description">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                    </div>
+                    <div class="card_helper">
+                        Posted 1.11.2023&emsp;13:45
+                    </div>
+                </div>
+                <div class="card_right">
+                    <div class="text_difficalty_easy">Easy</div>
+                    <button type="button" class="btn btn-primary card_btn">View</button>
+                </div>
+            </div>
+        </div>
     </div>
-
-
-
-
-
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
