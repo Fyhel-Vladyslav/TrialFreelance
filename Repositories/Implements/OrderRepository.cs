@@ -14,7 +14,6 @@ namespace TrialFreelance.Repositories.Implements
     {
         private ApplicationDbContext dbCon;
         private DbContextOptions<ApplicationDbContext> options;
-        private readonly IMapper mapper;
 
         public OrderRepository(ApplicationDbContext context, DbContextOptions<ApplicationDbContext> options)             
         {
@@ -55,7 +54,7 @@ namespace TrialFreelance.Repositories.Implements
             dbCon.SaveChanges();
         }
         
-        public IEnumerable<Order> FindOrdersByUserId(int id)
+        public IEnumerable<Order> GetOrdersByUserId(int id)
         {
 
             return dbCon.Orders.Where(p=>p.OwnerId == id);

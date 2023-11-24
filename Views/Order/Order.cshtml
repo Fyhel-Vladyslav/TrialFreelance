@@ -114,8 +114,7 @@
         <button id="btn3">Авторизація</button>
     </div>
     <div class="order-info">
-        <h1 class="order-title">Замовник: Ім'я вашого клієнта</h1>
-        <p>Дата реєстрації на сайті: 3 місяці тому.</p>
+        <h1 class="order-title">Замовник: </h1>
         <p>Рейтинг відгуків фрілансерів: 3.3</p>
         <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -123,11 +122,11 @@
         </svg>
 
 
-        <p style="width: 200px;" class="red">Складність: Висока</p>
+        <p style="width: 200px;" class="red">Складність: @Model.Difficulty</p>
 
         <div class="order-description">
-            <h2>Назва замовлення: клон ютуба</h2>
-            <p>Хочу нагнути ютуб і отримати купу слави.</p>
+            <h2>Назва замовлення: @Model.Name</h2>
+            <p>@Model.Description</p>
         </div>
 
         <div class="order-details">
@@ -136,7 +135,7 @@
                 <li>База даних: Присутня</li>
                 <li>Дизайн: Відсутня</li>
                 <li>Дедлайн: вчора</li>
-                <li>Інше: Інша інформація про замовлення</li>
+                <li>Інше: @Model.SecondaryTasks</li>
             </ul>
             <h2>Контакти замовника</h2>
             <ul>
@@ -146,6 +145,25 @@
             </ul>
         </div>
     </div>
+            <form asp-action="OrderSolutions" asp-controller="Solution">
+                <input type="hidden" name="id" value="@Model.Id" />
+        <button type="submit" style="width:80%;">Переглянути всі рішення цього замовлення </button>
+    </form>
+    <div> <h2>Запропонувати рішення замовлення</h2>
+        <form asp-action="CreateSolution" asp-controller="Solution">
+            <input type="hidden" value="@Model.Id" name="orderId" />
+            <div class="mb-3">
+                <input type="text" placeholder="Посилання на github рішення" name="githubLink" class="form-control" />
+                <span id="formDescError" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <input type="text" placeholder="Додайте опис" name="description" class="form-control" />
+                <span id="formDescError"class="text-danger"></span>
+            </div>
+<button type="submit">Подати рішення</button>
+        </form>
+    </div>
+
     <div class="gallery">
         <h3>Галерея:</h3>
         <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" fill="currentColor" class="bi bi-card-image" viewBox="0 0 16 16"> <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" /> <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13zm13 1a.5.5 0 0 1 .5.5v6l-3.775-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12v.54A.505.505 0 0 1 1 12.5v-9a.5.5 0 0 1 .5-.5h13z" /> </svg>

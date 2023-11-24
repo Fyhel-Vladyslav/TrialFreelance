@@ -46,6 +46,11 @@
                     <span asp-validation-for="@Model.GitHubLink" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
+                    <label class="form-label" asp-for="@Model.OwnerId">Id of owner</label>
+                    <input type="number" asp-for="@Model.OwnerId" class="form-control" />
+                    <span asp-validation-for="@Model.OwnerId" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
                     <label class="form-label" asp-for="@Model.Difficulty">Difficulty of order</label>
                     <input type="number" asp-for="@Model.Difficulty" class="form-control" />
                     <span asp-validation-for="@Model.Difficulty" class="text-danger"></span>

@@ -137,7 +137,6 @@ namespace TrialFreelance.Controllers
         public async Task<IActionResult> ManageUser(EditUserViewModel model)
         {
             var user = await userManager.FindByIdAsync(model.Id.ToString());
-            IList<string> _allUserRoles = userManager.GetRolesAsync(user).Result;
 
             if (user == null)
             {

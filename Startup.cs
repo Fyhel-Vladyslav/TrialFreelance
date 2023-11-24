@@ -41,6 +41,7 @@ namespace TrialFreelance
     .AddDefaultTokenProviders();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IPreOrderRepository, PreOrderRepository>();
+            services.AddScoped<IOrderSolutionRepository, OrderSolutionRepository>();
             services.AddRazorPages();
             services.AddAutoMapper(typeof(Startup), typeof(MapperContext));
 

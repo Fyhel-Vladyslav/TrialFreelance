@@ -79,13 +79,14 @@ namespace TrialFreelance.Controllers
                 };
 
                 orderRepository.Add(order);
-                return RedirectToAction("Order", "UserOrders");
+                return RedirectToAction("UserOrders", "Order");
             }
             ViewBag.Error = "Model is invalid";
             return View("Error");
         }
 
-  
+
+
         [HttpGet]
         public IActionResult EditOrder(int id)
         {
@@ -137,7 +138,7 @@ namespace TrialFreelance.Controllers
                 order.OwnerId = model.OwnerId;
                 order.SecondaryTasks = model.SecondaryTasks;
                 order.Status = model.Status;
-                order.CreatorId= order.CreatorId;
+                order.CreatorId= model.CreatorId;
 
                 orderRepository.Update(order);
                 

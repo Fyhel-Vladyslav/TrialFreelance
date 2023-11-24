@@ -77,25 +77,35 @@
 
 <div class="orders" style="margin-top: 50px;">
     <h1>Замовлення</h1>
-    @foreach (var item in Model)
+    @if (Model != null)
     {
-        <!-- Перший блок замовлення -->
-        <div class="order" onclick="redirect(@item.Id)">
-            <h2>@item.Name</h2>
-            <div class="orderPart">
-                <p class="difficulty_@item.Difficulty">Складність</p>
-                <p class="exist_@string.IsNullOrEmpty(item.ExampleLink) link_exist"></p>Приклад
-                <p class="exist_@string.IsNullOrEmpty(item.DbLink) link_exist"></p>База даних
-                <p class="exist_@string.IsNullOrEmpty(item.GitHubLink) link_exist"></p>Приклад
+        @foreach (var item in Model)
+        {
+            <!-- Перший блок замовлення -->
+            <div class="order" onclick="redirect(@item.Id)">
+                <h2>@item.Name</h2>
+                <div class="orderPart">
+                    <p class="difficulty_@item.Difficulty">Складність</p>
+                    <p class="exist_@string.IsNullOrEmpty(item.ExampleLink) link_exist"></p>Приклад
+                    <p class="exist_@string.IsNullOrEmpty(item.DbLink) link_exist"></p>База даних
+                    <p class="exist_@string.IsNullOrEmpty(item.GitHubLink) link_exist"></p>Приклад
+                </div>
+                <div class="orderPart" style="width:60%">
+                    @item.MainTask
+                </div>
+                @if (ViewBag.Role == "Admin")
+                {
+                    <div class="mybtn"><a href="/Order/EditOrder/@item.Id">Edit</a></div>
+                    <div class="mybtn"><a href="/Order/DeleteOrder/@item.Id">Delete</a></div>
+                }
             </div>
-            <div class="orderPart" style="width:60%">
-                @item.MainTask
-            </div>
-            @if (ViewBag.Role == "Admin")
-            {
-                <div class="mybtn"><a href="/Order/EditOrder/@item.Id">Edit</a></div>
-            <div class="mybtn"><a href="/Order/DeleteOrder/@item.Id">Delete</a></div>
-            }
+        }
+
+    }
+    else
+    {
+        <div class="card ">
+            <div class="card-header"> Ще не створено замовлень </div>
         </div>
     }
 </div>

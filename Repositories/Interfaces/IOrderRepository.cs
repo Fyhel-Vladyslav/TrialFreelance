@@ -8,6 +8,6 @@ namespace TrialFreelance.Repositories.Interfaces
     public interface IOrderRepository: IGenericRepository<Order>
     {
         public List<string> GetNames();
-        public IEnumerable<Order> FindOrdersByUserId(int id);
+        public IEnumerable<Order> GetOrdersByUserId(int id);
     }
 }

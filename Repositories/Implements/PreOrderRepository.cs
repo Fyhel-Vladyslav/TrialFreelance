@@ -33,7 +33,7 @@ namespace TrialFreelance.Repositories.Implements
 
         public IEnumerable<PreOrderViewModel> FindOrdersByUserId(int id)
         {
-            return mapper.Map < IEnumerable < PreOrderViewModel >> (iOrderRepository.FindOrdersByUserId(id));
+            return mapper.Map < IEnumerable < PreOrderViewModel >> (iOrderRepository.GetOrdersByUserId(id));
         }
     }
 
