@@ -61,12 +61,43 @@
 
     <div class="main_field">
         <div class="filter">
-            <div style="background-color: aliceblue; width: 100%; height: 100px;"></div>
+            <div class="prop">
+                <div class="input-group mb-3">
+                    <input id="search_prop" type="text" class="form-control" placeholder="Search by title" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button class="btn btn-success" type="button" id="button-addon2" onclick="FindByTitle()">Search</button>
+                </div>
+
+                <div class="prop_seperator"></div>
+
+                <div class="prop_header">Diffacalty:</div>
+                <ul style="list-style-type: none; margin: 0; padding-left: 10px;">
+                    <li class="prop_option">
+                        <input class="form-check-input" type="checkbox" value="" id="cb_hard" style="accent-color: #282c2c;">
+                        <label class="form-check-label prop_label" for="flexCheckDefault">
+                          Hard
+                        </label>
+                    </li>
+                    <li class="prop_option">
+                        <input class="form-check-input" type="checkbox" value="" id="cb_normal">
+                        <label class="form-check-label prop_label" for="flexCheckDefault">
+                          Normal
+                        </label>
+                    </li>
+                    <li class="prop_option">
+                        <input class="form-check-input" type="checkbox" value="" id="cb_easy">
+                        <label class="form-check-label prop_label" for="flexCheckDefault">
+                          Easy
+                        </label>
+                    </li>
+                </ul>
+                <button type="button" class="btn btn-secondary prop_btn_clear" onclick="Clear()">Clear</button>
+                <button type="button" class="btn btn-primary prop_btn_apply" onclick="FilterByDifficalty()">Apply</button>
+            </div>
         </div>
-        <div class="orders">
-            <div class="order_card">
+        <div class="orders" id="orderCards">
+            <!-- <div class="order_card">
                 <div class="card_left">
-                    <h1 class="card_header">Test task 1</h1>
+                    <h1 class="card_header">Test task One</h1>
                     <div class="card_description">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
                     </div>
@@ -81,7 +112,7 @@
             </div>
             <div class="order_card">
                 <div class="card_left">
-                    <h1 class="card_header">Test task 2</h1>
+                    <h1 class="card_header">Test task Two</h1>
                     <div class="card_description">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
                     </div>
@@ -96,7 +127,7 @@
             </div>
             <div class="order_card">
                 <div class="card_left">
-                    <h1 class="card_header">Test task 3</h1>
+                    <h1 class="card_header">Test task Three</h1>
                     <div class="card_description">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
                     </div>
@@ -108,11 +139,13 @@
                     <div class="text_difficalty_easy">Easy</div>
                     <button type="button" class="btn btn-primary card_btn">View</button>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
 
+
+    <script src="order_script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
