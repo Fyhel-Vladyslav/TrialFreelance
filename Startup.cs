@@ -41,6 +41,7 @@ namespace TrialFreelance
     .AddDefaultTokenProviders();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IPreOrderRepository, PreOrderRepository>();
+            services.AddScoped<IOrderSolutionRepository, OrderSolutionRepository>();
             services.AddRazorPages();
             services.AddAutoMapper(typeof(Startup), typeof(MapperContext));
 
@@ -72,7 +73,7 @@ namespace TrialFreelance
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Order}/{action=OrdersList}/{id?}");
             });
             //Seeder.SeedDataAsync(app.ApplicationServices, env, this.Configuration);
 

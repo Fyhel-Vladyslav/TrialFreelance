@@ -203,8 +203,6 @@ D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreel
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\TrialFreelance.TagHelpers.input.cache
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\TrialFreelance.TagHelpers.output.cache
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\TrialFreelance.RazorCoreGenerate.cache
-D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -228,70 +226,12 @@ D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreel
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\ListUsers.cshtml.g.cs
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\EditUser.cshtml.g.cs
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\ManageUser.cshtml.g.cs
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\appsettings.Development.json
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\appsettings.json
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\TrialFreelance.exe
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\TrialFreelance.deps.json
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\TrialFreelance.runtimeconfig.json
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\TrialFreelance.runtimeconfig.dev.json
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\TrialFreelance.dll
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\TrialFreelance.pdb
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\TrialFreelance.Views.dll
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\TrialFreelance.Views.pdb
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\AutoMapper.dll
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\Humanizer.dll
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\Npgsql.dll
-C:\Users\dariy\Documents\GitHub\TrialFreelance\bin\Debug\net5.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\TrialFreelance.csproj.AssemblyReference.cache
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\TrialFreelance.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\TrialFreelance.AssemblyInfoInputs.cache
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\TrialFreelance.AssemblyInfo.cs
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\TrialFreelance.csproj.CoreCompileInputs.cache
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\TrialFreelance.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\TrialFreelance.RazorAssemblyInfo.cache
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\TrialFreelance.RazorAssemblyInfo.cs
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\TrialFreelance.sourcelink.json
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\TrialFreelance.TagHelpers.input.cache
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\TrialFreelance.TagHelpers.output.cache
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\TrialFreelance.RazorCoreGenerate.cache
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\EditUser.cshtml.g.cs
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\ListUsers.cshtml.g.cs
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\Logout.cshtml.g.cs
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\ManageUser.cshtml.g.cs
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\test.cshtml.g.cs
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\TrialFreelance.RazorTargetAssemblyInfo.cache
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\TrialFreelance.RazorTargetAssemblyInfo.cs
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\TrialFreelance.Views.pdb
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\scopedcss\bundle\TrialFreelance.styles.css
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\staticwebassets\TrialFreelance.StaticWebAssets.Manifest.cache
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\staticwebassets\TrialFreelance.StaticWebAssets.Pack.cache
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\staticwebassets\msbuild.TrialFreelance.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\staticwebassets\msbuild.build.TrialFreelance.props
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.TrialFreelance.props
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.TrialFreelance.props
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\TrialFreelance.csproj.CopyComplete
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\TrialFreelance.dll
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\refint\TrialFreelance.dll
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\TrialFreelance.pdb
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\TrialFreelance.genruntimeconfig.cache
-C:\Users\dariy\Documents\GitHub\TrialFreelance\obj\Debug\net5.0\ref\TrialFreelance.dll
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Order\OrdersList.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Order\Order.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Order\CreateOrder.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Order\UserOrders.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Order\EditOrder.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Solution\UserSolutions.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Solution\EditSolution.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Solution\OrderSolutions.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Solution\SolutionsList.cshtml.g.cs

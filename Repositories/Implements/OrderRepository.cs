@@ -53,6 +53,12 @@ namespace TrialFreelance.Repositories.Implements
            dbCon.Entry(order).State = EntityState.Modified;
             dbCon.SaveChanges();
         }
+        
+        public IEnumerable<Order> GetOrdersByUserId(int id)
+        {
+
+            return dbCon.Orders.Where(p=>p.OwnerId == id);
+        }
     }
 
 }

@@ -43,14 +43,15 @@ namespace TrialFreelance.Controllers
                 {
                     await userManager.AddToRoleAsync(user, "User");
                     await signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("OrdersList", "Order");
                 }
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError("", error.Description);
                 }
             }
-            return View();
+            ViewBag.Error = "Model is invalid";
+            return View("Error");
         }
 
         public IActionResult test()
@@ -77,7 +78,7 @@ namespace TrialFreelance.Controllers
                 if (identityResult.Succeeded)
                 {
                     if (Model.ReturnUrl == null || Model.ReturnUrl == "/")
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("OrdersList", "Order");
                     else
                         return Redirect(Model.ReturnUrl);
 
@@ -103,7 +104,7 @@ namespace TrialFreelance.Controllers
         {
 
             await signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("OrdersList", "Order");
         }
 
         [HttpGet]
@@ -136,7 +137,6 @@ namespace TrialFreelance.Controllers
         public async Task<IActionResult> ManageUser(EditUserViewModel model)
         {
             var user = await userManager.FindByIdAsync(model.Id.ToString());
-            IList<string> _allUserRoles = userManager.GetRolesAsync(user).Result;
 
             if (user == null)
             {
@@ -157,7 +157,7 @@ namespace TrialFreelance.Controllers
                 var result = await userManager.UpdateAsync(user);
 
                 if (result.Succeeded)
-                { return RedirectToAction("Index", "Home"); }
+                { return RedirectToAction("OrdersList", "Order"); }
 
                 foreach (var error in result.Errors)
                 {

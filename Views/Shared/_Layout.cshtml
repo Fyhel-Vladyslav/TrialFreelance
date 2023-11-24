@@ -15,24 +15,19 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav style="position:inherit" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TrialFreelance</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Order" asp-action="OrdersList">TrialFreelance</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+@*                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="test">test</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                        </li> *@
+
                     </ul>
                     @{
                         if (SignInManager.IsSignedIn(User))
@@ -45,9 +40,8 @@
                                         <li class="nav-item">
                                             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="ListUsers">Користувачі</a>
                                         </li>
-
                                         <li class="nav-item">
-                                            <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="ListOrders">Замовлення</a>
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Solution" asp-action="SolutionsList">Рішення</a>
                                         </li>
                                     }
                                 }
@@ -78,7 +72,7 @@
             var items = OrderRepository.GetNames();
 
         <div style=" margin: 10px auto; display: block;  width:100%; height:40px;">
-                <form style=" padding: 10px; font-size: 17px; border: 1px solid grey; border-radius: 5px; float: left; margin-left: 10%;margin-top: 100px; width: 80%; background: #f1f1f1;" action="">
+                <form style=" padding: 10px; font-size: 17px; border: 1px solid grey; border-radius: 5px; float: left; margin-left: 10%;margin-top: -10px; width: 80%; background: #f1f1f1;" action="">
                     <input type="text" placeholder="Search.." name="search" style="width: 80%;" list="orders_list">
         <datalist id="orders_list">
                         @if(items!=null)
