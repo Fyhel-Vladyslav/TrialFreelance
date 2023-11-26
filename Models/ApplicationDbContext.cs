@@ -15,6 +15,7 @@ namespace TrialFreelance.Data
         }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderSolution> OrderSolutions { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
     }
 }

@@ -10,6 +10,7 @@ namespace TrialFreelance.Models
         public int Id { get; set; }
         public int CreatorId { get; set; }
         public int OrderId { get; set; }
+        public bool wasRead { get; set; }
         public string GitHubLink { get; set; }
         public string Description { get; set; }
 

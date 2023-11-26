@@ -1,0 +1,51 @@
+﻿@using TrialFreelance.ViewModels;
+@model IEnumerable<MessageViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .message {
+        display:block; 
+        margin: 40px;
+        padding:15px;
+}
+
+    .source {
+        float: left;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .mesText {
+        float: left;
+        margin: 10px;
+        font-size:14px;
+
+    }
+</style>
+
+@if(@Model!=null)
+{
+    @foreach(var mes in Model)
+    {
+        <div class="message">
+            <div class="source">@mes.SolutionId</div>
+            <div class="mesText">@mes.MesText</div>
+            <div class="mesText">@mes.isRead</div>
+            <form asp-action="SetMessageRead" method="post">
+                <input type="hidden" value="@mes.Id" name="id"/>
+                <button type="submit" style="float:left; margin:10px; padding:10px;">Позначити як прочитане</button>
+            </form>
+        </div>
+    }
+    <form asp-action="SetMessageRead" method="post">
+        <input type="hidden" value="@Model.FirstOrDefault().UserId" name="id" />
+        <input type="hidden" value="true" name="setAllRead" />
+        <button type="submit">Позначити всі як прочитані</button>
+    </form>
+}
+else
+{
+    <div>У вас немає не прочитаних повідомлень</div>
+}
