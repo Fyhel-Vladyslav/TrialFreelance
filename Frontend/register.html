@@ -21,51 +21,37 @@
         </div>
         <div class="main_form">
             <p class="header_register">Register</p>
-            <div class="input_box">
-                <div class="form-check">
-                    <input onchange="SwitchUser()" class="form-check-input" type="radio" name="rb_switch" id="rb_per" checked>
-                    <label class="form-check-label lable_register" for="flexRadioDefault1">
-                        Performer
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input onchange="SwitchUser()" class="form-check-input" type="radio" name="rb_switch" id="rb_cus">
-                    <label class="form-check-label lable_register" for="flexRadioDefault2" >
-                        Customer
-                    </label>
-                  </div>
-            </div>
-            <div class="input_box" style="margin-top:150px; position: absolute;">
+            <div class="input_box" style="margin-top:100px; position: absolute;">
                 <label class="form-label lable_register">Email address</label>
                 <input onfocus="ClearEmail()" onblur="CheckEmail()"
                     data-bs-theme="dark"  type="email" class="form-control" id="input_email_register" placeholder="name@example.com">
                 <div id="emailHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
             </div>
-            <div class="input_box" style="margin-top:245px; position: absolute;">
+            <div class="input_box" style="margin-top:200px; position: absolute;">
                 <label class="form-label lable_register">Name</label>
                 <input onfocus="ClearName()" onblur="CheckName()"
                     data-bs-theme="dark"  type="name" class="form-control" id="input_name_register" placeholder="some name">
                 <div id="nameHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
             </div>
-            <div class="input_box" style="margin-top:340px; position: absolute;">
-                <label class="form-label lable_register">Corp. name</label>
-                <input onfocus="ClearCorp()" onblur="CheckCorp()" disabled
-                    data-bs-theme="dark"  type="corp_name" class="form-control" id="input_corp_name_register" placeholder="some corp. name">
-                <div id="corpHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
+            <div class="input_box" style="margin-top:300px; position: absolute;">
+                <label class="form-label lable_register">Git Hub</label>
+                <input onfocus="ClearGit()" onblur="CheckGit()"
+                    data-bs-theme="dark"  type="git_name" class="form-control" id="input_git_name_register" placeholder="https://github.com/SomeName">
+                <div id="gitHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
             </div>
-            <div class="input_box" style="margin-top:435px; position: absolute;">
+            <div class="input_box" style="margin-top:400px; position: absolute;">
                 <label class="form-label lable_register">Phone number</label>
                 <input onfocus="ClearPhone()" onblur="CheckPhone()"
                     data-bs-theme="dark"  type="phone" class="form-control" id="input_phone_register" placeholder="+380...">
                 <div id="phoneHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
             </div>
-            <div class="input_box" style="margin-top:530px; position: absolute;">
+            <div class="input_box" style="margin-top:500px; position: absolute;">
                 <label class="form-label lable_register">Password</label>
                 <input onblur="CheckPassword()" onfocus="ClearPassword()"
                     data-bs-theme="dark" type="password" class="form-control" id="input_password_register" placeholder="Password"/>
                 <div id="passwordHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
             </div>
-            <button type="button" class="btn btn-outline-primary btn_register" style="margin-top:640px; position: absolute;">Register</button>
+            <button type="button" class="btn btn-outline-primary btn_register" style="margin-top:620px; position: absolute;">Register</button>
         </div>
     </div>
 

@@ -1,16 +1,3 @@
-function SwitchUser()
-{
-
-    rb_per = document.getElementById("rb_per")
-    rb_cus = document.getElementById("rb_cus")
-    var corp_name = document.getElementById("input_corp_name_register")
-    if(rb_per.checked){
-        corp_name.disabled = true
-    }
-    if(rb_cus.checked){
-        corp_name.disabled = false
-    }
-}
 
 function CheckEmail()
 {
@@ -49,22 +36,26 @@ function ClearName()
     document.getElementById("nameHelp").style.opacity = "0"
 }
 
-function CheckCorp()
+function CheckGit()
 {
-    var corp = document.getElementById("input_corp_name_register").value;
-    if(!corp.disabled){
-        if(!corp) {
-            document.getElementById("corpHelp").style.opacity = "1"
-            document.getElementById("corpHelp").innerText= "*Corp. name required"
-            return;
-        }
+    var git = document.getElementById("input_git_name_register").value;
+    if (!git) {
+        document.getElementById("gitHelp").style.opacity = "1"
+        document.getElementById("gitHelp").innerText = "*Git Hub required"
+        return;
     }
+    if(!git.includes("github.com/")) {
+        document.getElementById("gitHelp").style.opacity = "1"
+        document.getElementById("gitHelp").innerText = "*Invalid Git Hub link"
+        return;
+    }
+
 }
 
-function ClearCorp() 
+function ClearGit() 
 {
-    document.getElementById("corpHelp").innerText = ""
-    document.getElementById("corpHelp").style.opacity = "0"
+    document.getElementById("gitHelp").innerText = ""
+    document.getElementById("gitHelp").style.opacity = "0"
 }
 
 function CheckPhone()
