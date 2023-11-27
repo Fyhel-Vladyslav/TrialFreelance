@@ -4,8 +4,9 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 }
 class CardOrder {
-    constructor(title, description, date, difficalty, db, ref) {
+    constructor(title, user, description, date, difficalty, db, ref) {
         this.title = title;
+        this.user = user;
         this.description = description;
         this.date = date;
         this.difficalty = difficalty;
@@ -18,7 +19,7 @@ var cards = [];
 
 function GetFakeDB(){
     for (var i = 0; i < 25; ++i) {
-        var card = new CardOrder("Test Task " + (i + 1), 
+        var card = new CardOrder("Test Task " + (i + 1), "Test user " + (25-i),
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
         "01-11-2023", "Hard" , 1, 1);
         var rand1 = getRandomInt(1, 4);
@@ -113,6 +114,7 @@ function SetOrders(prop_cards){
         `<div class="order_card">
             <div class="card_left">
                 <h1 class="card_header">${prop_cards[i].title}</h1>
+                <a class="card_user" href="#">${prop_cards[i].user}</a>
                 <div class="card_description">
                         ${prop_cards[i].description}
                 </div>

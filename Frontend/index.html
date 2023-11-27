@@ -39,8 +39,34 @@
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">About</a>
                         </li>
+                        <li class="nav-item">
+                            <a style="font-weight: bold;" class="nav-link" href="add_order.html">+Add Order</a>
+                        </li>
                     </ul>
                     <form class="d-flex" role="login">
+                        <div class="dropdown">
+                            <button type="button" 
+                            class="btn btn-outline-light position-relative dropdown-toggle" 
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            style="font-weight: bold; margin-right: 100px;">
+                                Message
+                                <span class="badge bg-secondary">New</span>
+                            </button>
+                            <ul class="dropdown-menu" style="width: 400px; left: -110px;">
+                                <li><p style="margin-left: 20px; margin-top: 10px;">New solution in your order:</p></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="message_name"><a class="dropdown-item" href="#">
+                                    <span style="font-weight: bold; font-size: 18px;">
+                                    Test Order 1</span><br>12.12.2023</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="message_name"><a class="dropdown-item" href="#">
+                                    <span style="font-weight: bold; font-size: 18px;">
+                                    Test Order 2</span><br>12.12.2023</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                              </ul>
+                        </div>
                         <a href="login.html" class="nav-link link-light 
                             link-underline-opacity-0 
                             link-opacity-75-hover d-flex" 

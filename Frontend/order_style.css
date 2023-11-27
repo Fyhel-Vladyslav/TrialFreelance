@@ -54,6 +54,13 @@ body{
     font-size: 32px;
 }
 
+.card_user{
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(158, 158, 158);
+    margin-bottom: 20px;
+}
+
 .card_description{
     width: 100%;
     font-size: 18px;
@@ -177,3 +184,9 @@ body{
     margin-bottom: 3px;
 }
 
+.message_name{
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
