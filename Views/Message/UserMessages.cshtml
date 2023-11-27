@@ -7,7 +7,7 @@
 <style>
     .message {
         display:block; 
-        margin: 40px;
+        margin: 51px;
         padding:15px;
 }
 
@@ -21,7 +21,18 @@
         float: left;
         margin: 10px;
         font-size:14px;
+        width: 50%;
+        overflow: hidden
+    }
 
+    .mybtn {
+        border-style: solid;
+        width: 100px;
+        float: left;
+        padding: 10px;
+        margin: 20px;
+        height: 40px;
+        background-color: red;
     }
 </style>
 
@@ -33,6 +44,11 @@
             <div class="source">@mes.SolutionId</div>
             <div class="mesText">@mes.MesText</div>
             <div class="mesText">@mes.isRead</div>
+            @if (ViewBag.Role == "Admin")
+            {
+                <div class="mybtn"><a href="/Message/EditMessage/@mes.Id">Edit</a></div>
+                <div class="mybtn"><a href="/Message/DeleteMessage/@mes.Id">Delete</a></div>
+            }
             <form asp-action="SetMessageRead" method="post">
                 <input type="hidden" value="@mes.Id" name="id"/>
                 <button type="submit" style="float:left; margin:10px; padding:10px;">Позначити як прочитане</button>

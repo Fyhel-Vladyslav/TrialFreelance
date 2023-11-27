@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Npgsql;
 using System;
 using System.Data;
+using System.Threading;
 using System.Threading.Tasks;
 using TrialFreelance.Entities;
 using TrialFreelance.Enums;
@@ -10,6 +11,7 @@ using TrialFreelance.Migrations;
 using TrialFreelance.Models;
 using TrialFreelance.Repositories.Implements;
 using TrialFreelance.Repositories.Interfaces;
+using TrialFreelance.ViewModels;
 
 namespace TrialFreelance.Controllers
 {
@@ -108,67 +110,66 @@ namespace TrialFreelance.Controllers
             messageRepository.SetMessagesRead(list);
             return RedirectToAction("UserMessages");
         }
+
+        [HttpGet]
+        public IActionResult EditMessage(int id)
+        {
+            var message = messageRepository.FindById(id);
+            if (message != null)
+            {
+                var model = new MessageViewModel
+                {
+                    MesText = message.MesText,
+                     UserId = message.UserId,
+                    Id = message.Id,
+                     SolutionId = message.SolutionId,
+                    OrderId = message.OrderId,
+                     PostDate = message.PostDate,
+                      MesType = message.MesType,
+                      isRead = message.isRead,
+                };
+                return View(model);
+            }
+            ViewBag.Error = "Такого повідомлення не існує";
+            return View("Error");
+        }
+        [HttpPost]
+        public IActionResult EditSolution(MessageViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var message = messageRepository.FindById(model.Id);
+                if(message!=null)
+                {
+                    message.MesText = model.MesText;
+                    message.UserId = model.UserId;
+                    message.SolutionId = model.SolutionId;
+                    message.OrderId = model.OrderId;
+                    message.PostDate = model.PostDate;
+                    message.MesType = model.MesType;
+                    message.isRead = model.isRead;
+
+                    messageRepository.Update(message);
+                return RedirectToAction("UserSolutions");
+            }
+                ViewBag.Error = "Такого повідомлення не існує";
+                return View("Error");
+            }
+            ViewBag.Error = "Model is invalid";
+            return View("Error");
+        }
+
+        public IActionResult DeleteMessage(int id)
+        {
+            var message = messageRepository.FindById(id);
+
+            if (message != null)
+            {
+                messageRepository.Delete(message);
+                return RedirectToAction("UserMessages");
+            }
+            ViewBag.ErrorMessage = $"Замовлення з id = {id} не знайдено";
+            return View("Error");
+        }
     }
 }
-
-
-
-//If you are using Npgsql (the.NET data provider for PostgreSQL) and encountering the "Connection is busy" issue, you can consider the following Npgsql-specific tips:
-
-//Async / Await Patterns:
-
-//Npgsql supports asynchronous programming, so make sure that you are using the asynchronous methods when appropriate. Check that you are awaiting asynchronous calls properly.
-//Connection Pooling:
-
-//Npgsql uses connection pooling by default. Make sure that you are disposing of Npgsql connections properly after use. The using statement is a good way to ensure that the connection is properly closed and returned to the pool.
-//csharp
-//Copy code
-//using (var connection = new NpgsqlConnection(connectionString))
-//{
-//    await connection.OpenAsync();
-
-//    // Perform database operations here
-
-//} // Connection is automatically closed and returned to the pool
-//Concurrency Issues:
-
-//If you are working with multiple threads, ensure that you are not sharing Npgsql connections across threads. Each thread should have its own connection.
-//Check Connection State:
-
-//Before opening a connection, check if it's closed. This is important to avoid attempting to open an already open connection.
-//csharp
-//Copy code
-//using (var connection = new NpgsqlConnection(connectionString))
-//{
-//    if (connection.State == ConnectionState.Closed)
-//    {
-//        await connection.OpenAsync();
-//    }
-
-//    // Perform database operations here
-
-//} // Connection is automatically closed and returned to the pool
-//Transaction Handling:
-
-//If you are using transactions, ensure that you are properly committing or rolling back transactions and closing the connection afterward.
-//csharp
-//Copy code
-//using (var connection = new NpgsqlConnection(connectionString))
-//{
-//    await connection.OpenAsync();
-
-//    using (var transaction = connection.BeginTransaction())
-//    {
-//        try
-//        {
-//            // Perform transactional database operations here
-
-//            transaction.Commit();
-//        }
-//        catch
-//        {
-//            transaction.Rollback();
-//            throw;
-//        }
-//    }
-//}

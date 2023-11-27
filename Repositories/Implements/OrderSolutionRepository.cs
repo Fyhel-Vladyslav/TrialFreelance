@@ -22,10 +22,11 @@ namespace TrialFreelance.Repositories.Implements
             this.options = options;
         }
 
-        public void Add(OrderSolution item)
+        public int Add(OrderSolution item)
         {
             dbCon.OrderSolutions.Add(item);
             dbCon.SaveChanges();
+            return item.Id;
         }
 
         public void Delete(OrderSolution model)

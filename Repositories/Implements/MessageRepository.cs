@@ -13,20 +13,22 @@ namespace TrialFreelance.Repositories.Implements
     public class MessageRepository : IMessageRepository
     {
         private ApplicationDbContext dbCon;
+        private ApplicationDbContext dbCon2;
         private DbContextOptions<ApplicationDbContext> options;
         private readonly IMapper mapper;
         public MessageRepository(ApplicationDbContext context, IMapper mapper, DbContextOptions<ApplicationDbContext> options)
         {
             dbCon = context;
-            this.options = options;
+            this.dbCon2 = new ApplicationDbContext(options); ;
             this.mapper = mapper;
         }
 
-        public void Add(Message message)
+        public int Add(Message message)
         {
             message.isRead = false;
             dbCon.Messages.Add(message);
             dbCon.SaveChanges();
+            return message.Id;
         }
 
         public void Delete(Message model)
@@ -47,8 +49,8 @@ namespace TrialFreelance.Repositories.Implements
 
         public void Update(Message message)
         {
-            dbCon.Entry(message).State = EntityState.Modified;
-            dbCon.SaveChanges();
+            dbCon2.Entry(message).State = EntityState.Modified;
+            dbCon2.SaveChanges();
         }
 
         public IEnumerable<MessageViewModel> GetMessagesByUserId(int id)
@@ -68,8 +70,8 @@ namespace TrialFreelance.Repositories.Implements
             {
                 Message message;
                 foreach (var id in ids)
-                {
-                    message = dbCon.Messages.Find(id);
+                { 
+                    message = dbCon2.Messages.Find(id);
                     if (message != null)
                     if (!message.isRead)
                     {
@@ -78,6 +80,13 @@ namespace TrialFreelance.Repositories.Implements
                     }
                 }
             }
+        }
+
+        public IEnumerable<PreMessageViewModel> GetPreMessages(int id)
+        {
+            var PreMessageViewModel = mapper.Map<IEnumerable<PreMessageViewModel>>(dbCon2.Messages.Where(p => p.UserId == id)).ToList();
+
+            return PreMessageViewModel;
         }
     }
 

@@ -9,5 +9,7 @@ namespace TrialFreelance.Repositories.Interfaces
     {
         public IEnumerable<MessageViewModel> GetMessagesByUserId(int id);
         public void SetMessagesRead(List<int> ids);
+        public IEnumerable<PreMessageViewModel> GetPreMessages(int id);
+
     }
 }

@@ -7,7 +7,7 @@ namespace TrialFreelance.Repositories.Interfaces
     {
         TEntity FindById(int id);
         IEnumerable<TEntity> GetAll();
-        void Add(TEntity model);
+        int Add(TEntity model);
         void Delete(TEntity model);
         void Update(TEntity model);
     }
