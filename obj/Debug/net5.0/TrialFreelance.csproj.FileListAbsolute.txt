@@ -220,7 +220,6 @@ D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreel
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\bin\Debug\net5.0\Npgsql.dll
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\bin\Debug\net5.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
-D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\test.cshtml.g.cs
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\Logout.cshtml.g.cs
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\ListUsers.cshtml.g.cs
@@ -235,3 +234,6 @@ D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreel
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Solution\EditSolution.cshtml.g.cs
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Solution\OrderSolutions.cshtml.g.cs
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Solution\SolutionsList.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Message\UserMessages.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Message\AddMessage.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Message\EditMessage.cshtml.g.cs

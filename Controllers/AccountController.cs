@@ -125,6 +125,7 @@ namespace TrialFreelance.Controllers
                 UserName = user.UserName,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
+                Messager = user.Messager,
                 Birthday = user.Birthday,
                 GitHubPageLink = user.GitHubPageLink,
                 FinishedOrders = user.FinishedOrders
@@ -150,6 +151,7 @@ namespace TrialFreelance.Controllers
                 user.LastName = model.LastName;
                 user.Id = model.Id;
                 user.UserName = model.UserName;
+                user.Messager = model.Messager;
                 user.GitHubPageLink = model.GitHubPageLink;
                 user.FinishedOrders = model.FinishedOrders;
 
@@ -208,6 +210,7 @@ namespace TrialFreelance.Controllers
                 LastName = user.LastName,
                 AllRoles = allRolesModel,
                 UserName = user.UserName,
+                Messager = user.Messager,
                 Birthday = user.Birthday,
                 GitHubPageLink = user.GitHubPageLink,
                 FinishedOrders = user.FinishedOrders
@@ -232,6 +235,7 @@ namespace TrialFreelance.Controllers
                 user.Birthday = model.Birthday;
                 user.UserName = model.UserName;
                 user.FirstName = model.FirstName;
+                user.Messager = model.Messager;
                 user.LastName = model.LastName;
                 user.GitHubPageLink = model.GitHubPageLink;
                 user.FinishedOrders = model.FinishedOrders;

@@ -4,6 +4,7 @@
 @inject SignInManager<DbUser> SignInManager
 @inject UserManager<DbUser> UserManager
 @inject IOrderRepository OrderRepository
+@inject IMessageRepository MessageRepository
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,12 +24,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-@*                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="test">test</a>
-                        </li> *@
-
-                    </ul>
+                   
                     @{
                         if (SignInManager.IsSignedIn(User))
                         {
@@ -45,6 +41,26 @@
                                         </li>
                                     }
                                 }
+                                <li class="nav-item">
+                                    <a class="btn btn-primary" href="@Url.Action("UserMessages", "Message")">Messages</a>
+                                   @{
+                                        // var userIdString = UserManager.GetUserId(User);
+
+                                        // int.TryParse(userIdString, out int userId);     
+                                        // var messages = MessageRepository.GetPreMessages(userId);
+
+                                        // <div style=" margin: 10px auto; display: block;  width:100%; height:40px;">
+                                            
+                                        //         <datalist id="orders_list">
+                                        //             @if (messages != null)
+                                        //                 @foreach (var option in messages)
+                                        //                 {
+                                        //                     <option value="@option.MesText"></option>
+                                        //                 }
+                                        //         </datalist>
+                                        // </div>
+                                    }
+                                </li>
                                 <li class="nav-item">
                                     <a class="btn btn-primary" href="@Url.Action("Logout", "Account", new { returnUrl = Context.Request.Path })">Logout</a>
                                 </li>
@@ -69,14 +85,14 @@
             </div>
         </nav>
         @{
-            var items = OrderRepository.GetNames();
+            var formNames = OrderRepository.GetNames();
 
         <div style=" margin: 10px auto; display: block;  width:100%; height:40px;">
                 <form style=" padding: 10px; font-size: 17px; border: 1px solid grey; border-radius: 5px; float: left; margin-left: 10%;margin-top: -10px; width: 80%; background: #f1f1f1;" action="">
                     <input type="text" placeholder="Search.." name="search" style="width: 80%;" list="orders_list">
         <datalist id="orders_list">
-                        @if(items!=null)
-                        @foreach (var option in items)
+                        @if (formNames != null)
+                            @foreach (var option in formNames)
         {
         <option value="@option"></option>
         }

@@ -10,6 +10,8 @@ namespace TrialFreelance
         {
             CreateMap<Order, PreOrderViewModel>();
             CreateMap<OrderSolution, OrderSolutionViewModel>();
+            CreateMap<Message, MessageViewModel>();
+            CreateMap<Message, PreMessageViewModel>();
 
         }
     }

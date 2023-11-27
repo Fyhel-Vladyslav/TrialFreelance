@@ -22,10 +22,11 @@ namespace TrialFreelance.Repositories.Implements
             this.options = options;
         }
 
-        public void Add(OrderSolution item)
+        public int Add(OrderSolution item)
         {
             dbCon.OrderSolutions.Add(item);
             dbCon.SaveChanges();
+            return item.Id;
         }
 
         public void Delete(OrderSolution model)
@@ -80,10 +81,10 @@ namespace TrialFreelance.Repositories.Implements
             //            Description = solution.Description
             //        })
             //    .ToList();
-            var solutionViewModels = mapper.Map<IEnumerable<OrderSolutionViewModel>>(dbCon.OrderSolutions).Where(p=>p.CreatorId==id).ToList();
-            string userName = dbCon.Users.Find(id).UserName;
-            for (int i = 0; i < solutionViewModels.LongCount(); i++)
-                solutionViewModels[i].CreatorUserName = userName;
+                var solutionViewModels = mapper.Map<IEnumerable<OrderSolutionViewModel>>(dbCon.OrderSolutions.Where(p => p.CreatorId == id)).ToList();
+                string userName = dbCon.Users.Find(id).UserName;
+                for (int i = 0; i < solutionViewModels.LongCount(); i++)
+                    solutionViewModels[i].CreatorUserName = userName;
 
                 return solutionViewModels;
         }

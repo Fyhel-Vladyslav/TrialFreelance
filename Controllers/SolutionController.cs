@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using TrialFreelance.Entities;
+using TrialFreelance.Enums;
 using TrialFreelance.Models;
 using TrialFreelance.Repositories.Implements;
 using TrialFreelance.Repositories.Interfaces;
@@ -16,11 +18,13 @@ namespace TrialFreelance.Controllers
         private readonly IOrderSolutionRepository solutionRepository;
         private readonly IOrderRepository orderRepository;
         private readonly UserManager<DbUser> userManager;
-        public SolutionController(IOrderRepository orderRepository, UserManager<DbUser> userManager, IOrderSolutionRepository solutionRepository)
+        private readonly IMessageRepository messageRepository;
+        public SolutionController(IOrderRepository orderRepository, IMessageRepository messageRepository, UserManager<DbUser> userManager, IOrderSolutionRepository solutionRepository)
         {
             this.orderRepository = orderRepository;
             this.solutionRepository = solutionRepository;
             this.userManager = userManager;
+            this.messageRepository = messageRepository;
         }
 
         public IActionResult SolutionsList()
@@ -41,7 +45,12 @@ namespace TrialFreelance.Controllers
                 if (user != null)
                 {
                     var solution = new OrderSolution { CreatorId = user.Id, Description = description, GitHubLink = githubLink, OrderId = orderId };
-                    solutionRepository.Add(solution);
+                    int solutionId = solutionRepository.Add(solution);
+
+                    messageRepository.Add(new Message { MesText=$"Дорогий {user.UserName}, для вашого замовлення створено нове рішення.", MesType=(int)MessageTypes.Solution, OrderId=orderId, PostDate=DateTime.Today.ToString(), UserId=user.Id, SolutionId= solutionId });
+                    user.FinishedOrders++;
+                    await userManager.UpdateAsync(user);
+
                     return RedirectToAction("ManageUser", "Account");
                 }
             }
@@ -102,7 +111,7 @@ namespace TrialFreelance.Controllers
             return View("Error");
         }
         [HttpPost]
-        public async Task<IActionResult> EditSolution(EditSolutionViewModel model)
+        public IActionResult EditSolution(EditSolutionViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -117,9 +126,6 @@ namespace TrialFreelance.Controllers
                     OrderId = model.OrderId
                 };
                 solutionRepository.Update(solution);
-                var user = await userManager.GetUserAsync(User);
-                user.FinishedOrders++;
-                await userManager.UpdateAsync(user);
                 return RedirectToAction("UserSolutions");
             }
             return View();

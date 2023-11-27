@@ -33,6 +33,7 @@
     </style>
 
     @if(@Model!=null)
+    {
     @foreach(var sol in Model)
     {
         <div class="item">
@@ -45,3 +46,11 @@
             }
         </div>
     }
+    }
+    else
+{
+
+<div class="item">
+        <h2> Ще не створено рішень </h2>
+    </div>
+}

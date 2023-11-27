@@ -16,6 +16,8 @@ namespace TrialFreelance.Models
         public string ExampleLink { get; set; }
         public string GitHubLink { get; set; }
         public string DbLink { get; set; }
+        public string PostDate { get; set; }
+
         public string SecondaryTasks { get; set; }
         public string MainTask { get; set; }
         public string Description { get; set; }
