@@ -126,8 +126,7 @@ function SetOrders(prop_cards){
             </div>
             <div class="card_right">
                 <div class="text_difficalty_${prop_cards[i].difficalty.toLowerCase()}">${prop_cards[i].difficalty}</div>
-                    <button type="button" class="btn btn-primary card_btn">View</button>
-                </div>
+                <button name="order_btn" id="${i}" type="button" class="btn btn-primary card_btn">View</button>
             </div>`; 
     }
 }
@@ -135,6 +134,16 @@ function SetOrders(prop_cards){
 window.onload = function() {
     GetFakeDB();
     SetOrders(cards);
+    var buttons = document.getElementsByName("order_btn");
+
+    const buttonPressed = e => {
+        sessionStorage.setItem("order", JSON.stringify(cards[e.target.id]));
+        window.location.href = "order_page.html";
+    }
+
+    for (let button of buttons) {
+        button.addEventListener("click", buttonPressed);
+    }
 } 
 
 
@@ -191,5 +200,9 @@ function FilterByDifficalty() {
     } else {
         SetOrders(cards);
     }
+}
+
+function OpenOrder() {
+
 }
 
