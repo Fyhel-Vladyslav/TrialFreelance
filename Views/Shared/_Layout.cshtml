@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@* @using Microsoft.AspNetCore.Identity
 @using TrialFreelance.Entities
 @using TrialFreelance.Repositories.Interfaces;
 @inject SignInManager<DbUser> SignInManager
@@ -24,7 +24,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                   
+
                     @{
                         if (SignInManager.IsSignedIn(User))
                         {
@@ -46,11 +46,11 @@
                                    @{
                                         // var userIdString = UserManager.GetUserId(User);
 
-                                        // int.TryParse(userIdString, out int userId);     
+                                        // int.TryParse(userIdString, out int userId);
                                         // var messages = MessageRepository.GetPreMessages(userId);
 
                                         // <div style=" margin: 10px auto; display: block;  width:100%; height:40px;">
-                                            
+
                                         //         <datalist id="orders_list">
                                         //             @if (messages != null)
                                         //                 @foreach (var option in messages)
@@ -119,4 +119,154 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+</html>
+
+ *@
+
+
+@using Microsoft.AspNetCore.Identity
+@using TrialFreelance.Entities
+@using TrialFreelance.Repositories.Interfaces;
+@inject SignInManager<DbUser> SignInManager
+@inject UserManager<DbUser> userManager
+@inject IMessageRepository MessageRepository
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TrialFreelnce</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/layout_style.css" type="text/css" />
+</head>
+
+<body>
+
+
+    <div class="nav_body">
+        <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                         class="bi bi-box-fill" viewBox="0 0 16 18">
+                        <path fill-rule="evenodd"
+                              d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.004-.001.274-.11a.75.75 0 0 1 .558 0l.274.11.004.001 6.971 2.789Zm-1.374.527L8 5.962 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339Z" />
+                    </svg>
+                    TrialFreelnce
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="orders.html">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a style="font-weight: bold;" class="nav-link" href="add_order.html">+Add Order</a>
+                            </li>
+                        }
+                    </ul>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <div class="dropdown">
+                            <button type="button"
+                                    class="btn btn-outline-light position-relative dropdown-toggle"
+                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                    style="font-weight: bold; margin-right: 100px;">
+                                Message
+                                <span class="badge bg-secondary">New</span>
+                            </button>
+                            <ul class="dropdown-menu" style="width: 400px; left: -110px;">
+                                <li><p style="margin-left: 20px; margin-top: 10px;">New solution in your order:</p></li>
+                                <li><hr class="dropdown-divider"></li>
+
+                                @{
+                                    var userIdString = userManager.GetUserId(User);
+
+                                    int.TryParse(userIdString, out int userId);
+                                    var messages = MessageRepository.GetPreMessages(userId);
+
+                                            @if (messages != null)
+                                                @foreach (var option in messages)
+                                                {
+
+                                <li class="message_name">
+                                    <a class="dropdown-item" href="#">
+                                        <span style="font-weight: bold; font-size: 18px;">
+                                                        @option.MesText
+                                        </span><br>@option.PostDate
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                            }
+                                }
+
+                            </ul>
+                           </div>
+                        <div class="nav-link link-light" onclick="location.href='Message/UserMessages'">View All messages</div>
+
+                        @if (User.IsInRole("Admin"))
+                            {
+                                <a asp-area="" asp-controller="Account" asp-action="ListUsers" class="nav-link link-light
+                                        link-underline-opacity-0
+                                        link-opacity-75-hover d-flex"
+                                   style="align-items: center; margin-right: 10px;">
+                                    Користувачі
+                                </a>
+                                <a asp-area="" asp-controller="Solution" asp-action="SolutionsList" class="nav-link link-light
+                                            link-underline-opacity-0
+                                            link-opacity-75-hover d-flex"
+                                   style="align-items: center; margin-right: 10px;">
+                                    Рішення
+                                </a>
+                            }
+                        
+                         
+                        <a href="@Url.Action("Logout", "Account", new { returnUrl = Context.Request.Path })" class=" nav-link link-light
+                                        link-underline-opacity-0
+                                        link-opacity-75-hover d-flex"
+                           style="align-items: center; margin-right: 10px;">
+                            Logout
+                        </a>
+                        <a href="/Account/ManageUser"><svg style="width: 50px; height: 50px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <g> <path fill="none" d="M0 0h24v24H0z" /> <path fill-rule="nonzero" d="M12 17c3.662 0 6.865 1.575 8.607 3.925l-1.842.871C17.347 20.116 14.847 19 12 19c-2.847 0-5.347 1.116-6.765 2.796l-1.841-.872C5.136 18.574 8.338 17 12 17zm0-15a5 5 0 0 1 5 5v3a5 5 0 0 1-4.783 4.995L12 15a5 5 0 0 1-5-5V7a5 5 0 0 1 4.783-4.995L12 2zm0 2a3 3 0 0 0-2.995 2.824L9 7v3a3 3 0 0 0 5.995.176L15 10V7a3 3 0 0 0-3-3z" /> </g> </svg></a>
+
+
+                    }
+                    else
+                    {
+                    <a asp-area="" asp-controller="Account" asp-action="Login" class="nav-link link-light
+                                link-underline-opacity-0
+                                link-opacity-75-hover d-flex"
+                       style="align-items: center; margin-right: 10px;">
+                        Login
+                    </a>
+                    <a asp-area="" asp-controller="Account" asp-action="Register" class="nav-link link-light
+                                link-underline-opacity-0
+                                link-opacity-75-hover
+                                focus-ring-secondary py-1 px-2 border rounded-2">
+                        Register
+                    </a>
+                    }
+
+                </div>
+            </div>
+        </nav>
+    </div>
+    @RenderBody()
+</body>
+
 </html>

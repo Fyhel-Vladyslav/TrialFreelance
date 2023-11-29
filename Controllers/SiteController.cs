@@ -4,7 +4,7 @@ namespace TrialFreelance.Controllers
 {
     public class SiteController : Controller
     {
-        public IActionResult AboutUs()//not implement
+        public IActionResult Index()//not implement
         {
             return View();
         }

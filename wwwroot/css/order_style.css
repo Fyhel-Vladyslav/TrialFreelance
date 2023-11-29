@@ -1,0 +1,192 @@
+body{
+    background-color: #101414
+
+}
+
+.nav_body{
+    position: fixed;
+    z-index: 1;
+    top: 0px;
+    padding-left: 1%; 
+    padding-right: 2%; 
+    width: 100%;
+    background-color: #21262d;
+}
+
+.main_field{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 80px;
+}
+
+.filter{
+    width: 15%;
+    min-width: 310px;
+    padding-left: 50px;
+    padding-right: 10px;
+}
+
+.orders{
+    width: 85%;
+    min-width: 550px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.order_card{
+    width: 100%;
+    border-bottom: 2px solid rgb(158, 158, 158);
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    color:darkred
+}
+
+.card_header{
+    color: white;
+    font-size: 32px;
+}
+
+.card_user{
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(158, 158, 158);
+    margin-bottom: 20px;
+}
+
+.card_description{
+    width: 100%;
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgb(158, 158, 158);
+}
+
+.card_helper{
+    margin-top: 30px;
+    color: rgb(158, 158, 158);
+    display: flex;
+    flex-direction: row;
+}
+
+.card_left{
+    width: 80%;
+}
+
+.card_right{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.text_difficalty_hard{
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(200, 0, 0);
+    border: 3px solid rgb(200, 0, 0);
+    width:fit-content;
+    padding: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 8px;
+}
+
+.text_difficalty_normal{
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(185, 125, 0);
+    border: 3px solid rgb(185, 125, 0);
+    width:fit-content;
+    padding: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 8px;
+}
+.text_difficalty_easy{
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(75, 185, 0);
+    border: 3px solid rgb(75, 185, 0);
+    width:fit-content;
+    padding: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 8px;
+}
+
+.card_btn{
+    font-size: 24px;
+    font-weight: bold;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 30px;
+}
+
+.prop{
+    width: 285px; 
+    height: 900px;
+    padding-top: 52px;
+    padding-right: 30px;
+    position: fixed;
+    top: 60px;
+    left: 35px;
+    border-right: 1px solid rgb(158, 158, 158);
+}
+
+.prop_option{
+    color: white;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.prop_label{
+    margin-left: 10px;
+}
+
+.prop_header{
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.prop_btn_apply{
+    position: fixed;
+    bottom: 20px;
+    left: 42px;
+    font-weight: bold;
+    font-size: 24px;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+.prop_btn_clear{
+    position: fixed;
+    bottom: 80px;
+    left: 42px;
+    font-weight: bold;
+    font-size: 14px;
+    padding-left: 87px;
+    padding-right: 87px;
+}
+
+.prop_seperator{
+    border-bottom: 2px solid rgb(158, 158, 158);
+    margin-bottom: 3px;
+}
+
+.message_name{
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
