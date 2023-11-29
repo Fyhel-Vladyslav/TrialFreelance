@@ -149,7 +149,7 @@
     <div class="nav_body">
         <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
                          class="bi bi-box-fill" viewBox="0 0 16 18">
                         <path fill-rule="evenodd"
@@ -195,29 +195,29 @@
                                 <li><hr class="dropdown-divider"></li>
 
                                 @{
-                                    var userIdString = userManager.GetUserId(User);
+                                //     var userIdString = userManager.GetUserId(User);
 
-                                    int.TryParse(userIdString, out int userId);
-                                    var messages = MessageRepository.GetPreMessages(userId);
+                                //     int.TryParse(userIdString, out int userId);
+                                //     var messages = MessageRepository.GetPreMessages(userId);
 
-                                            @if (messages != null)
-                                                @foreach (var option in messages)
-                                                {
+                                //             @if (messages != null)
+                                //                 @foreach (var option in messages)
+                                //                 {
 
-                                <li class="message_name">
-                                    <a class="dropdown-item" href="#">
-                                        <span style="font-weight: bold; font-size: 18px;">
-                                                        @option.MesText
-                                        </span><br>@option.PostDate
-                                    </a>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                            }
+                                // <li class="message_name">
+                                //     <a class="dropdown-item" href="#">
+                                //         <span style="font-weight: bold; font-size: 18px;">
+                                //                         @option.MesText
+                                //         </span><br>@option.PostDate
+                                //     </a>
+                                // </li>
+                                // <li><hr class="dropdown-divider"></li>
+                                //             }
                                 }
 
                             </ul>
                            </div>
-                        <div class="nav-link link-light" onclick="location.href='Message/UserMessages'">View All messages</div>
+                        <div class="nav-link link-light" onclick="location.href='/Message/UserMessages'">View All messages</div>
 
                         @if (User.IsInRole("Admin"))
                             {

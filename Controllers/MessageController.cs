@@ -134,7 +134,7 @@ namespace TrialFreelance.Controllers
             return View("Error");
         }
         [HttpPost]
-        public IActionResult EditSolution(MessageViewModel model)
+        public IActionResult EditMessage(MessageViewModel model)
         {
             if (ModelState.IsValid)
             {

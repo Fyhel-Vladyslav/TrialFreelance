@@ -53,13 +53,6 @@ namespace TrialFreelance.Controllers
             ViewBag.Error = "Model is invalid";
             return View("Error");
         }
-
-        public IActionResult test()
-        {
-
-            var users = userManager.Users;
-                return View(users);
-        }
         [HttpGet]
         public IActionResult Login()
         {
