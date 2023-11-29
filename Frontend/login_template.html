@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>template</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="login_template_style.css" />
+</head>
+
+<body>
+    <div class="nav_body" >
+        <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        class="bi bi-box-fill" viewBox="0 0 16 18">
+                        <path fill-rule="evenodd"
+                            d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.004-.001.274-.11a.75.75 0 0 1 .558 0l.274.11.004.001 6.971 2.789Zm-1.374.527L8 5.962 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339Z" />
+                    </svg>
+                    TrialFreelnce
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="orders.html">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="font-weight: bold; color:forestgreen;" class="nav-link" href="add_order.html">+Add Order</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="login">
+                        <div class="dropdown" style="width: 100px; margin-right: 80px;">
+                            <button type="button" 
+                            class="btn btn-primary position-relative dropdown-toggle" 
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            style="font-weight: bold; margin-right: 100px;">
+                                Message
+                                <span class="badge bg-secondary">New</span>
+                            </button>
+                            <ul class="dropdown-menu" style="width: 400px; left: -110px;">
+                                <li><p style="margin-left: 20px; margin-top: 10px;">New solution in your order:</p></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="message_name"><a class="dropdown-item" href="#">
+                                    <span style="font-weight: bold; font-size: 18px;">
+                                    Test Order 1</span><br>12.12.2023</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="message_name"><a class="dropdown-item" href="#">
+                                    <span style="font-size: 18px; color:#ffc404">
+                                    System alert</span><br>12.12.2023</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <a href="message.html">
+                                    <button type="button" class="btn btn-primary" style="margin-left: 18px;">View all message</button>
+                                </a>
+                              </ul>
+                        </div>
+
+                        <a href="#" class="nav-link link-light nav_user
+                            link-underline-opacity-0 
+                            link-opacity-75-hover d-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                            </svg>
+                            test user
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
