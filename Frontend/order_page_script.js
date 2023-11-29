@@ -3,4 +3,3 @@ window.onload = function(){
     console.log(order)
     document.title = order.title;
 }
-

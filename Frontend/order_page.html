@@ -15,7 +15,7 @@
     <div class="nav_body" >
         <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
                         class="bi bi-box-fill" viewBox="0 0 16 18">
                         <path fill-rule="evenodd"
@@ -65,7 +65,9 @@
                                     System alert</span><br>12.12.2023</a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
-                                <button type="button" class="btn btn-primary" style="margin-left: 18px;">View all message</button>
+                                <a href="message.html">
+                                    <button type="button" class="btn btn-primary" style="margin-left: 18px;">View all message</button>
+                                </a>
                               </ul>
                         </div>
 
@@ -143,7 +145,7 @@
             </div>
             <div class="divider" style="margin-top:30px"></div>
             <div class="btn_group">
-                <button type="button" class="btn btn-success btn_add">Add solution</button>
+                <button type="button" class="btn btn-success btn_add" onclick="window.location.href = 'add_solution.html'">Add solution</button>
                 <button type="button" class="btn btn-outline-primary btn_view">View existed solution</button>
             </div>
         </div>

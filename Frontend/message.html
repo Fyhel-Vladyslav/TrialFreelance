@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My messages</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="message_style.css" />
+</head>
+
+<body>
+    <div class="nav_body">
+        <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        class="bi bi-box-fill" viewBox="0 0 16 18">
+                        <path fill-rule="evenodd"
+                            d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.004-.001.274-.11a.75.75 0 0 1 .558 0l.274.11.004.001 6.971 2.789Zm-1.374.527L8 5.962 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339Z" />
+                    </svg>
+                    TrialFreelnce
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="orders.html">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="font-weight: bold; color:forestgreen;" class="nav-link" href="add_order.html">+Add
+                                Order</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="login">
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-primary position-relative dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-expanded="false"
+                                style="font-weight: bold; margin-right: 100px;">
+                                Message
+                                <span class="badge bg-secondary">New</span>
+                            </button>
+                            <ul class="dropdown-menu" style="width: 400px; left: -110px;">
+                                <li>
+                                    <p style="margin-left: 20px; margin-top: 10px;">New solution in your order:</p>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li class="message_name"><a class="dropdown-item" href="#">
+                                        <span style="font-weight: bold; font-size: 18px;">
+                                            Test Order 1</span><br>12.12.2023</a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li class="message_name"><a class="dropdown-item" href="#">
+                                        <span style="font-size: 18px; color:#ffc404">
+                                            System alert</span><br>12.12.2023</a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <a href="message.html">
+                                    <button type="button" class="btn btn-primary" style="margin-left: 18px;">View all
+                                        message</button>
+                                </a>
+                            </ul>
+                        </div>
+
+                        <a href="login.html" class="nav-link link-light 
+                            link-underline-opacity-0 
+                            link-opacity-75-hover d-flex" style="align-items: center; margin-right: 10px;">
+                            Login
+                        </a>
+                        <a href="register.html" class="nav-link link-light 
+                            link-underline-opacity-0 
+                            link-opacity-75-hover 
+                            focus-ring-secondary py-1 px-2 border rounded-2">
+                            Register
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="main_field">
+        <h1 class="title">My messages</h1>
+        <div class="mail_field">
+            <div class="btn-group bar_btn_group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary bar_btn">Select All</button>
+                <button type="button" class="btn btn-primary bar_btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-envelope-open" viewBox="0 0 16 16">
+                        <path
+                            d="M8.47 1.318a1 1 0 0 0-.94 0l-6 3.2A1 1 0 0 0 1 5.4v.817l5.75 3.45L8 8.917l1.25.75L15 6.217V5.4a1 1 0 0 0-.53-.882l-6-3.2ZM15 7.383l-4.778 2.867L15 13.117zm-.035 6.88L8 10.082l-6.965 4.18A1 1 0 0 0 2 15h12a1 1 0 0 0 .965-.738ZM1 13.116l4.778-2.867L1 7.383v5.734ZM7.059.435a2 2 0 0 1 1.882 0l6 3.2A2 2 0 0 1 16 5.4V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5.4a2 2 0 0 1 1.059-1.765l6-3.2" />
+                    </svg>
+                </button>
+            </div>
+            <div class="divider"></div>
+            <div class="accordion accordion-flush" data-bs-theme="dark" id="accordionFlushExample">
+                <div class="accordion-item unread_message">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed message" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1" aria-expanded="false">
+                            <div class="form-check">
+                                <input name="cb_message" class="form-check-input" type="checkbox" value="" id="message_ch_1">
+                            </div>
+                            <span class="message_header">
+                                Test Order 1
+                            </span>
+                            <span style="font-size: 16px; margin-left: 30px">
+                                12.12.2023
+                            </span>
+                            <div class="edit_btn">Edit</div>
+                            <div class="del_btn">Delete</div>
+                        </button>
+                    </h2>
+                    <div id="flush-collapse1" class="accordion-collapse collapse"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <div>
+                                Placeholder content for this accordion, which is intended to
+                                demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion
+                                body.
+                            </div>
+                            <button type="button" class="btn btn-primary message_btn">Go to solution</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item message">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed message" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="false">
+                            <div class="form-check">
+                                <input name="cb_message" class="form-check-input" type="checkbox" value="" id="message_ch_2">
+                            </div>
+                            <span class="message_system_header">
+                                System Alert
+                            </span>
+                            <span style="font-size: 16px; margin-left: 30px">
+                                12.12.2023
+                            </span>
+                            <div class="edit_btn">Edit</div>
+                            <div class="del_btn">Delete</div>
+                        </button>
+                    </h2>
+                    <div id="flush-collapse2" class="accordion-collapse collapse"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                            demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion
+                            body. Let's imagine this being filled with some actual content.</div>
+                    </div>
+                </div>
+                <div class="accordion-item unread_message">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed message" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="false">
+                            <div class="form-check">
+                                <input name="cb_message" class="form-check-input" type="checkbox" value="" id="message_ch_3">
+                            </div>
+                            <span class="message_header">
+                                Test Order 4
+                            </span>
+                            <span style="font-size: 16px; margin-left: 30px">
+                                12.12.2023
+                            </span>
+                            <div class="edit_btn">Edit</div>
+                            <div class="del_btn">Delete</div>
+                        </button>
+                    </h2>
+                    <div id="flush-collapse3" class="accordion-collapse collapse"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <div>
+                                Placeholder content for this accordion, which is intended to
+                                demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion
+                                body. Nothing more exciting happening here in terms of content, but just filling up the
+                                space to make it look, at least at first glance, a bit more representative of how this would
+                                look in a real-world application.
+                            </div>
+                            <button type="button" class="btn btn-primary message_btn">Go to solution</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item message">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed message message_text" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="false">
+                            <div class="form-check">
+                                <input name="cb_message" class="form-check-input" type="checkbox" value="" id="message_ch_4">
+                            </div>
+                            <span class="message_header">
+                                Test Order 5
+                            </span>
+                            <span style="font-size: 16px; margin-left: 30px">
+                                12.12.2023
+                            </span>
+                            <div class="edit_btn">Edit</div>
+                            <div class="del_btn">Delete</div>
+                        </button>
+                    </h2>
+                    <div id="flush-collapse4" class="accordion-collapse collapse"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <div>
+                                Placeholder content for this accordion, which is intended to
+                                demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion
+                                body.
+                            </div>
+                            <button type="button" class="btn btn-primary message_btn">Go to solution</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item message">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed message" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse5" aria-expanded="false">
+                            <div class="form-check">
+                                <input  name="cb_message" class="form-check-input" type="checkbox" value="" id="message_ch_5">
+                            </div>
+                            <span class="message_system_header">
+                                System Alert
+                            </span>
+                            <span style="font-size: 16px; margin-left: 30px">
+                                12.12.2023
+                            </span>
+                            <div class="edit_btn">Edit</div>
+                            <div class="del_btn">Delete</div>
+                        </button>
+                    </h2>
+                    <div id="flush-collapse5" class="accordion-collapse collapse"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                            demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion
+                            body. Let's imagine this being filled with some actual content.</div>
+                    </div>
+                </div>
+                <div class="accordion-item message">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed message" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse6" aria-expanded="false">
+                            <div class="form-check">
+                                <input name="cb_message" class="form-check-input" type="checkbox" value="" id="message_ch_6">
+                            </div>
+                            <span class="message_header">
+                                Test Order 7
+                            </span>
+                            <span style="font-size: 16px; margin-left: 30px">
+                                12.12.2023
+                            </span>
+                            <div class="edit_btn">Edit</div>
+                            <div class="del_btn">Delete</div>
+                        </button>
+                    </h2>
+                    <div id="flush-collapse6" class="accordion-collapse collapse"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <div> 
+                                Placeholder content for this accordion, which is intended to
+                                demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion
+                                body. Nothing more exciting happening here in terms of content, but just filling up the
+                                space to make it look, at least at first glance, a bit more representative of how this would
+                                look in a real-world application.
+                            </div>
+                            <button type="button" class="btn btn-primary message_btn">Go to solution</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="message_script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
