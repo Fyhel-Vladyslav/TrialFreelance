@@ -34,6 +34,13 @@ namespace TrialFreelance.Controllers
             return View(solutionRepository.GetAllSolutions());
         }
 
+        public IActionResult Solution(int id)
+        {
+            if (User.IsInRole("Admin"))
+                ViewBag.Role = "Admin";
+
+            return View(solutionRepository.FindById(id));
+        }
 
         [HttpPost]
         public async Task<IActionResult> CreateSolution(int orderId, string githubLink, string description)

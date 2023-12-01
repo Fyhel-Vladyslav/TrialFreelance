@@ -1,5 +1,5 @@
 body{
-    background-image: url(/img/index_background.webp);
+    background-image: url(~/img/index_background.webp);
     background-repeat: no-repeat;
     background-position: -800px -200px;
     background-color: rgba(12,16,21,255);

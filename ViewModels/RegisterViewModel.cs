@@ -14,9 +14,12 @@ namespace TrialFreelance.ViewModels
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-        [Required]
-        [DataType(DataType.Password)]
-        [Compare(nameof(Password), ErrorMessage = "Паролі не співпаають")]
-        public string ConfirmPassword { get; set; }
+        public string UserName { get; set; }
+        public string PhoneNumber { get; set; }
+        public string GitHubPageLink { get; set; }
+        //[Required]
+        //[DataType(DataType.Password)]
+        //[Compare(nameof(Password), ErrorMessage = "Паролі не співпаають")]
+        //public string ConfirmPassword { get; set; }
     }
 }

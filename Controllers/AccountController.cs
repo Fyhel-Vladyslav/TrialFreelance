@@ -104,7 +104,6 @@ namespace TrialFreelance.Controllers
         public async Task<IActionResult> ManageUser()
         {
             DbUser user = await userManager.GetUserAsync(User);
-
             if (user == null)
             {
                 ViewBag.ErrorMessage = $"Користувача не знайдено";

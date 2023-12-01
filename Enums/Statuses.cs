@@ -1,6 +1,6 @@
 ﻿namespace TrialFreelance.Enums
 {
-    enum Statuses
+    public enum Statuses
     {
         Closed = 3,
         Taken = 2,

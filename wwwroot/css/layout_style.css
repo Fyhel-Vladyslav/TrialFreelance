@@ -1,6 +1,18 @@
-body{
-    background-color: #101414
 
+
+body {
+    background-color: #101414;
+    display: flex;
+    justify-content: center;
+}
+
+.nav_user {
+    font-size: 18px;
+    font-weight: bold;
+    align-items: center;
+    /* border: 1px solid rgb(152, 152, 152);
+    border-radius: 5px; */
+    padding: 5px 20px;
 }
 
 .nav_body{

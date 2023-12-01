@@ -165,60 +165,31 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                            <a class="nav-link active" aria-current="page" asp-area="" asp-controller="Site" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="orders.html">Orders</a>
+                            <a class="nav-link" asp-area="" asp-controller="Order" asp-action="OrdersList">Orders</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
+                            <a class="nav-link" asp-area="" asp-controller="Site" asp-action="AboutUs">About</a>
                         </li>
                         @if (SignInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
-                                <a style="font-weight: bold;" class="nav-link" href="add_order.html">+Add Order</a>
+                                <a style="font-weight: bold;" class="nav-link" asp-area="" asp-controller="Order" asp-action="CreateOrder">+Add Order</a>
                             </li>
                         }
                     </ul>
                     @if (SignInManager.IsSignedIn(User))
                     {
-                        <div class="dropdown">
-                            <button type="button"
-                                    class="btn btn-outline-light position-relative dropdown-toggle"
-                                    data-bs-toggle="dropdown" aria-expanded="false"
+                        <button onclick="location.href='/Message/UserMessages'" type="button"
+                                    class="btn btn-outline-light position-relative"
+                                     
                                     style="font-weight: bold; margin-right: 100px;">
                                 Message
                                 <span class="badge bg-secondary">New</span>
                             </button>
-                            <ul class="dropdown-menu" style="width: 400px; left: -110px;">
-                                <li><p style="margin-left: 20px; margin-top: 10px;">New solution in your order:</p></li>
-                                <li><hr class="dropdown-divider"></li>
-
-                                @{
-                                //     var userIdString = userManager.GetUserId(User);
-
-                                //     int.TryParse(userIdString, out int userId);
-                                //     var messages = MessageRepository.GetPreMessages(userId);
-
-                                //             @if (messages != null)
-                                //                 @foreach (var option in messages)
-                                //                 {
-
-                                // <li class="message_name">
-                                //     <a class="dropdown-item" href="#">
-                                //         <span style="font-weight: bold; font-size: 18px;">
-                                //                         @option.MesText
-                                //         </span><br>@option.PostDate
-                                //     </a>
-                                // </li>
-                                // <li><hr class="dropdown-divider"></li>
-                                //             }
-                                }
-
-                            </ul>
-                           </div>
-                        <div class="nav-link link-light" onclick="location.href='/Message/UserMessages'">View All messages</div>
-
+                      
                         @if (User.IsInRole("Admin"))
                             {
                                 <a asp-area="" asp-controller="Account" asp-action="ListUsers" class="nav-link link-light
@@ -236,14 +207,29 @@
                             }
                         
                          
+
+
                         <a href="@Url.Action("Logout", "Account", new { returnUrl = Context.Request.Path })" class=" nav-link link-light
                                         link-underline-opacity-0
                                         link-opacity-75-hover d-flex"
                            style="align-items: center; margin-right: 10px;">
                             Logout
                         </a>
-                        <a href="/Account/ManageUser"><svg style="width: 50px; height: 50px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <g> <path fill="none" d="M0 0h24v24H0z" /> <path fill-rule="nonzero" d="M12 17c3.662 0 6.865 1.575 8.607 3.925l-1.842.871C17.347 20.116 14.847 19 12 19c-2.847 0-5.347 1.116-6.765 2.796l-1.841-.872C5.136 18.574 8.338 17 12 17zm0-15a5 5 0 0 1 5 5v3a5 5 0 0 1-4.783 4.995L12 15a5 5 0 0 1-5-5V7a5 5 0 0 1 4.783-4.995L12 2zm0 2a3 3 0 0 0-2.995 2.824L9 7v3a3 3 0 0 0 5.995.176L15 10V7a3 3 0 0 0-3-3z" /> </g> </svg></a>
 
+
+                        <a href="/Account/ManageUser" class="nav-link link-light nav_user
+                            link-underline-opacity-0
+                            link-opacity-75-hover d-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                            </svg>
+                            @{
+                                var userName = userManager.GetUserName(User);
+                                <span style="padding-top:3px;">@userName</span>
+                            }
+                        </a>
+                       
 
                     }
                     else

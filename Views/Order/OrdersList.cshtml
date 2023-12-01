@@ -99,7 +99,7 @@
                         }
                     </div>
                         <div class="card_right">
-                            <div class="text_difficalty_hard">@((Difficuties)item.Difficulty)</div>
+                        <div class="text_difficalty_@((Difficuties)item.Difficulty).ToLowerCase()">@((Difficuties)item.Difficulty)</div>
                             <button type="button" onclick="redirect(@item.Id)" class="btn btn-primary card_btn">View</button>
                         </div>
                     </div>

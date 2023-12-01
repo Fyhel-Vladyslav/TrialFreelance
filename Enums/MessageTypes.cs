@@ -1,6 +1,6 @@
 ﻿namespace TrialFreelance.Enums
 {
-    enum MessageTypes
+    public enum MessageTypes
     {
         System = 2,
         Solution = 1
