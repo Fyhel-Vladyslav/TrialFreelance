@@ -1,0 +1,69 @@
+﻿@model TrialFreelance.ViewModels.EditOrderViewModel
+
+
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<div class="container mt-5">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-12 col-md-12 col-lg-4">
+            <h1 class="mb-3">Edit order</h1>
+            <form asp-action="EditOrder" method="post">
+                <div asp-validation-summary="All" class="text-danger"> </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="@Model.Name">Name of order</label>
+                    <input type="text" asp-for="@Model.Name" class="form-control" />
+                    <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="@Model.Description">Description of order</label>
+                    <input type="text" asp-for="@Model.Description" class="form-control" />
+                    <span asp-validation-for="@Model.Description" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="@Model.MainTask">MainTask</label>
+                    <input type="text" asp-for="@Model.MainTask" class="form-control" />
+                    <span asp-validation-for="@Model.MainTask" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="@Model.SecondaryTasks">SecondaryTasks</label>
+                    <input type="text" asp-for="@Model.SecondaryTasks" class="form-control" />
+                    <span asp-validation-for="@Model.SecondaryTasks" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="@Model.ExampleLink">ExampleLink</label>
+                    <input type="text" asp-for="@Model.ExampleLink" class="form-control" />
+                    <span asp-validation-for="@Model.ExampleLink" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="@Model.DbLink">DbLink</label>
+                    <input type="text" asp-for="@Model.DbLink" class="form-control" />
+                    <span asp-validation-for="@Model.DbLink" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="@Model.GitHubLink">GitHubLink</label>
+                    <input type="text" asp-for="@Model.GitHubLink" class="form-control" />
+                    <span asp-validation-for="@Model.GitHubLink" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="@Model.OwnerId">Id of owner</label>
+                    <input type="number" asp-for="@Model.OwnerId" class="form-control" />
+                    <span asp-validation-for="@Model.OwnerId" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="@Model.Difficulty">Difficulty of order</label>
+                    <input type="number" asp-for="@Model.Difficulty" class="form-control" />
+                    <span asp-validation-for="@Model.Difficulty" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="@Model.CreatorId">Id of creator</label>
+                    <input type="number" asp-for="@Model.CreatorId" class="form-control" />
+                    <span asp-validation-for="@Model.CreatorId" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

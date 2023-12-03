@@ -25,7 +25,7 @@
         width: 100%;
         display: flex;
         border: 1px solid #ddd;
-        margin: 0; 
+        margin: 0;
         padding: 20px;
     }
 
@@ -35,19 +35,19 @@
     }
 
     .link_exist {
-        width:8px;
-        height:8px;
+        width: 8px;
+        height: 8px;
     }
 
     .exist_True {
-background-color:green;
+        background-color: green;
     }
 
     .exist_False {
         background-color: red;
     }
 
-    .difficulty_1{
+    .difficulty_1 {
         background-color: lightgreen;
     }
 
@@ -64,23 +64,30 @@ background-color:green;
     }
 </style>
 
-    
-    <div class="orders" style="margin-top: 50px;">
-        <h1>Замовлення</h1>
+
+<div class="orders" style="margin-top: 50px;">
+    <h1>Ваші Замовлення</h1>
     @foreach (var item in Model)
     {
         <!-- Перший блок замовлення -->
         <div class="order">
+            <div class="orderPart" onclick="redirect(@item.Id)">
             <h2>@item.Name</h2>
-			<div class="orderPart">
-            <p class="difficulty_@item.Difficulty">Складність</p>
-                <p class="exist_@string.IsNullOrEmpty(item.ExampleLink) link_exist"></p>Приклад
-                <p class="exist_@string.IsNullOrEmpty(item.DbLink) link_exist"></p>База даних
-                <p class="exist_@string.IsNullOrEmpty(item.GitHubLink) link_exist"></p>Приклад
-			</div>
-       		<div class="orderPart" style="width:60%">
+            <div class="orderPart" style="width:60%">
                 @item.MainTask
-       		</div> 
+            </div>
+            </div>
+            <div class="orderPart">
+                <a asp-action="EditOrder" asp-route-id="@item.Id">Edit</a>
+                <a asp-action="DeleteOrder" asp-route-id="@item.Id">Delete</a>
+            </div>
         </div>
     }
-    </div>
+</div>
+
+<script>
+    function redirect(id) {
+        console.log(id);
+        window.location.href = ("/Order/Order/" + id);
+    }
+</script>

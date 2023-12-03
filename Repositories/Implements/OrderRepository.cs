@@ -21,10 +21,11 @@ namespace TrialFreelance.Repositories.Implements
             this.options = options;
         }
 
-        public void Add(Order item)
+        public int Add(Order item)
         {
             dbCon.Orders.Add(item);
             dbCon.SaveChanges();
+            return item.Id;
         }
 
         public void Delete(Order model)
@@ -52,6 +53,12 @@ namespace TrialFreelance.Repositories.Implements
         {
            dbCon.Entry(order).State = EntityState.Modified;
             dbCon.SaveChanges();
+        }
+        
+        public IEnumerable<Order> GetOrdersByUserId(int id)
+        {
+
+            return dbCon.Orders.Where(p=>p.OwnerId == id);
         }
     }
 
