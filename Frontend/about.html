@@ -4,24 +4,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Index demo</title>
+    <title>About Us</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="about_style.css" />
 </head>
 
 <body>
-    <div style="padding-left: 1%; padding-right: 1%; margin-bottom: 1%">
-        <nav class="navbar navbar-expand-lg bg-subtle border-bottom border-body" data-bs-theme="dark">
+    <div class="nav_body" >
+        <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
                         class="bi bi-box-fill" viewBox="0 0 16 18">
                         <path fill-rule="evenodd"
                             d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.004-.001.274-.11a.75.75 0 0 1 .558 0l.274.11.004.001 6.971 2.789Zm-1.374.527L8 5.962 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339Z" />
                     </svg>
-                    Navbar
+                    TrialFreelance
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -37,38 +37,67 @@
                             <a class="nav-link" href="orders.html">Orders</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="about.html">About</a>
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="font-weight: bold; color:forestgreen;" class="nav-link" href="add_order.html">+Add Order</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="login">
-                        <a href="#" class="nav-link link-light 
+                        <div class="dropdown" style="width: 100px; margin-right: 80px;">
+                            <button type="button" 
+                            class="btn btn-primary position-relative dropdown-toggle" 
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            style="font-weight: bold; margin-right: 100px;">
+                                Message
+                                <span class="badge bg-secondary">New</span>
+                            </button>
+                            <ul class="dropdown-menu" style="width: 400px; left: -110px;">
+                                <li><p style="margin-left: 20px; margin-top: 10px;">New solution in your order:</p></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="message_name"><a class="dropdown-item" href="#">
+                                    <span style="font-weight: bold; font-size: 18px;">
+                                    Test Order 1</span><br>12.12.2023</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="message_name"><a class="dropdown-item" href="#">
+                                    <span style="font-size: 18px; color:#ffc404">
+                                    System alert</span><br>12.12.2023</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <a href="message.html">
+                                    <button type="button" class="btn btn-primary" style="margin-left: 18px;">View all message</button>
+                                </a>
+                              </ul>
+                        </div>
+
+                        <a href="#" class="nav-link link-light nav_user
                             link-underline-opacity-0 
-                            link-opacity-75-hover d-flex" 
-                            style="align-items: center; margin-right: 10px;">
-                            Login
-                        </a>
-                        <a href="#" class="nav-link link-light 
-                            link-underline-opacity-0 
-                            link-opacity-75-hover 
-                            focus-ring-secondary py-1 px-2 border rounded-2">
-                            Register
+                            link-opacity-75-hover d-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                            </svg>
+                            test user
                         </a>
                     </form>
                 </div>
             </div>
         </nav>
     </div>
-    <div>
-        <div class="fs-1 h1" style="color: white;">Test navbar</div>
-        <h1 style="color: white;">Index</h1>
-    </div>
-
-
-
-
-
-
-
+    <div class="main_field">
+        <h1 class="title">About project</h1>
+        <div class="main_content">Trials Freelance is a demo version of the freelance platform for students and beginning programmers who want to face real cases and gain relevant experience in the market.
+            <br><br>With our product, you can create and execute tasks from various IT companies (from small businesses to large companies looking for promising newcomers).
+            <br><br>It should be noted that the task is performed on a voluntary basis. A tip system is possible (the availability and size of which is determined by the customer).
+        </div>
+        <h1 class="title">Developers</h1>
+        <div class="main_content">
+            <span style="font-weight: bold; text-decoration: underline;">Фугас Влад</span> - team lead, backend<br>
+            <span style="font-weight: bold;">Дем'янюк Даша</span> - fontend, backend<br>
+            <span style="font-weight: bold;">Авдейчик Дмитро</span> - design, frontend
+        </div>
+     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
