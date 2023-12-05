@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="/css/order_style.css" type="text/css" />
 
 <div class="orders" style="margin-top:75px" id="orderCards">
-    @if(Model!= null)
+    @if(Model.Any())
     {
         @foreach (var item in Model)
     {
@@ -67,9 +67,9 @@
     }
     else
     {
-    <div class="order_card ">
-        <div class="card-header"> Ще не створено замовлень </div>
-    </div>
+        <div style="margin: 50px;color: #FFF;">
+            <h2> Ще не створено Замовлень </h2>
+        </div>
     }
 </div>
 

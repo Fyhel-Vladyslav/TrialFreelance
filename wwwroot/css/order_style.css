@@ -12,7 +12,10 @@ body{
     width: 100%;
     background-color: #21262d;
 }
-
+.unselected {
+    display: none;
+    visibility: hidden;
+}
 .main_field{
     display: flex;
     flex-direction: row;

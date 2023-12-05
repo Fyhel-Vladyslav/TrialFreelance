@@ -70,11 +70,6 @@
                                 <span style="font-size: 16px; margin-left: 30px">
                                     @mes.PostDate
                                 </span>
-                                @if (ViewBag.Role == "Admin")
-                                {
-                                    <div class="btn btn-edit_btn"><a href="/Message/EditMessage/@mes.Id">Edit</a></div>
-                                    <div class="btn btn-danger"><a href="/Message/DeleteMessage/@mes.Id">Delete</a></div>
-                                }
                             </button>
                         </h2>
                         <div id="flush-collapse_@mes.Id" class="accordion-collapse collapse"
@@ -85,9 +80,14 @@
                                 </div>
                                 @if(mes.MesType==(int)MessageTypes.Solution)
                                 {
-                                    <div type="button" class="btn btn-primary message_btn">
+                                    <div type="button" class="btn btn-primary message_btn" style="font-weight: 900;">
                                         <a href="/Solution/Solution/@mes.SolutionId">Go to solution</a>
                                     </div>
+                                }
+                                @if (ViewBag.Role == "Admin")
+                                {
+                                    <div type="button" class="btn btn-edit_btn"><a href="/Message/EditMessage/@mes.Id">Edit</a></div>
+                                    <div type="button" class="btn btn-danger"><a href="/Message/DeleteMessage/@mes.Id">Delete</a> </div>
                                 }
 
                             </div>
@@ -102,7 +102,9 @@
 }
 else
 {
-    <div>У вас немає не прочитаних повідомлень</div>
+    <div style="margin: 50px;color: #FFF;">
+        <h2> У вас немає не прочитаних повідомлень</h2>
+    </div>
 }
 
 
@@ -130,6 +132,9 @@ else
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
             });
+    }
+    function redirect(id) {
+        window.location.href = ("/Solution/Order/" + id);
     }
     </script>
 
