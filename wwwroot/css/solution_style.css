@@ -1,0 +1,83 @@
+body {
+	background-color: #101414;
+	overflow: auto;
+}
+
+.nav_body {
+	position: fixed;
+	z-index: 1;
+	top: 0px;
+	padding-left: 1%;
+	padding-right: 2%;
+	width: 100%;
+	background-color: #21262d;
+}
+
+.main_field {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin-top: 80px;
+}
+
+.breadcrumb {
+	margin: 0 0 5px 30px;
+	padding: 2px;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+.accordion {
+	min-width: 100%;
+}
+
+	.accordion .contentBx {
+		position: relative;
+		height: auto;
+		margin: 10px 20px;
+	}
+
+		.accordion .contentBx .label {
+			font-size: 20px;
+			position: relative;
+			padding: 10px;
+			background: #21262d;
+			color: #fff;
+			cursor: pointer;
+		}
+
+			.accordion .contentBx .label:before {
+				content: '+';
+				position: absolute;
+				top: 50%;
+				right: 20px;
+				transform: translateY(-50%);
+				font-size: 1.5em;
+			}
+
+		.accordion .contentBx.active .label:before {
+			content: '-';
+		}
+
+		.accordion .contentBx .content {
+			font-size: 18px;
+			overflow: hidden;
+			height: 0;
+			background: #6c757d;
+			visibility: hidden;
+			transition: 0.5s;
+			overflow-y: auto;
+		}
+
+		.accordion .contentBx.active .content {
+			height: 150px;
+			padding: 10px;
+			visibility: visible;
+		}

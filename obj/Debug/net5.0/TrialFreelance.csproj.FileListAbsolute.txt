@@ -239,3 +239,6 @@ D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreel
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Message\EditMessage.cshtml.g.cs
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Site\Index.cshtml.g.cs
 D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Solution\Solution.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Solution\CreateSolution.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Account\ShowUser.cshtml.g.cs
+D:\vodnik\3 курс\Командна розробка\TrialFreelance\TrialFreelance\obj\Debug\net5.0\Razor\Views\Site\AboutUs.cshtml.g.cs

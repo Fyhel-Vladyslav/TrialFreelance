@@ -119,8 +119,10 @@
                 <select asp-for="@Model.Difficulty" onchange="CheckDifficalty()" id="select_difficalty" style="width: 100%; margin-left: -3px; margin-top: 0px; color: rgb(158, 158, 158); font-weight: bold;" data-bs-theme="dark" class="form-select input_box" data-size="20" data-dropup-auto="false"
                     aria-label="Default select example">
                 <option value="1" selected>Easy</option>
-                <option value="2">Normal</option>
-                <option value="3">Hard</option>
+                    <option value="2" selected>Normal</option>
+                <option value="3" selected>Middle</option>
+                    <option value="4">Hard</option>
+                    <option value="5">Unpossible</option>
 
             </select>
         </div>
@@ -132,3 +134,15 @@
 
 
 <script src="/js/add_order_script.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Отримуємо елемент з ID "home"
+        var homeElement = document.getElementById("nav-link-create");
+
+        // Перевіряємо, чи елемент існує
+        if (homeElement) {
+            // Додаємо клас "Active" до класів елемента
+            homeElement.classList.add("active");
+        }
+    });
+</script>

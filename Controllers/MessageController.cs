@@ -81,7 +81,7 @@ namespace TrialFreelance.Controllers
                 OrderId = model.OrderId,
                 MesText = model.MesText,
                 MesType = model.SolutionId == 0 ? (int)MessageTypes.System : (int)MessageTypes.Solution,
-                PostDate = DateTime.Today.AddDays(-1).ToString(),
+                PostDate = DateTime.Now.ToString("yyyy-MM-dd"),
                 SolutionId = model.SolutionId
             };
 
@@ -90,12 +90,12 @@ namespace TrialFreelance.Controllers
         }
 
         [HttpPost]
-        public IActionResult SetMessageRead(int id, bool setAllRead = false)
+        public IActionResult SetMessageRead([FromBody] SetMessageReadModel model)
         {
             System.Collections.Generic.List<int> list = new System.Collections.Generic.List<int>();
-            if (setAllRead)// if setAllRead==1 then in id we sent id of user
+            if (model.SetAllRead)// if setAllRead==1 then in id we sent id of user
             {
-                var userMessages = messageRepository.GetMessagesByUserId(id);
+                var userMessages = messageRepository.GetMessagesByUserId(model.id);
                 if(userMessages != null)
                 {
                     foreach(var message in userMessages)
@@ -105,12 +105,11 @@ namespace TrialFreelance.Controllers
                 }
             }
             else// if setAllRead==0 then in id we sent id of message
-                list.Add(id);
+                list.Add(model.id);
 
             messageRepository.SetMessagesRead(list);
             return RedirectToAction("UserMessages");
         }
-
         [HttpGet]
         public IActionResult EditMessage(int id)
         {
@@ -170,6 +169,12 @@ namespace TrialFreelance.Controllers
             }
             ViewBag.ErrorMessage = $"Замовлення з id = {id} не знайдено";
             return View("Error");
+        }
+
+        public class SetMessageReadModel
+        {
+            public int id { get; set; }
+            public bool SetAllRead { get; set; }
         }
     }
 }

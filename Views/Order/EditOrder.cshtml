@@ -60,6 +60,11 @@
                     <span asp-validation-for="@Model.Difficulty" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
+                    <label class="form-label" asp-for="@Model.Status">Status of order</label>
+                    <input type="number" asp-for="@Model.Status" class="form-control" />
+                    <span asp-validation-for="@Model.Status" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
                     <label class="form-label" asp-for="@Model.CreatorId">Id of creator</label>
                     <input type="number" asp-for="@Model.CreatorId" class="form-control" />
                     <span asp-validation-for="@Model.CreatorId" class="text-danger"></span>

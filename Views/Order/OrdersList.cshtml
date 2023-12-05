@@ -51,9 +51,10 @@
             @foreach (var item in Model)
             {
                 <div class="order_card">
+                    <div>@((Statuses)item.Status)</div>
                     <div class="card_left">
                         <h1 class="card_header">@item.Name</h1>
-                        <a class="card_user" href="Account/ViewPage/@item.CreatorId" >Show owner</a>
+                        <a class="card_user" href="Account/ShowUser/@item.CreatorId" >Show owner</a>
                         <div class="card_description">
                             @item.MainTask
                         </div>
@@ -99,7 +100,7 @@
                         }
                     </div>
                         <div class="card_right">
-                        <div class="text_difficalty_@((Difficuties)item.Difficulty).ToLowerCase()">@((Difficuties)item.Difficulty)</div>
+                        <div class="text_difficalty_@((Difficuties)item.Difficulty)">@((Difficuties)item.Difficulty)</div>
                             <button type="button" onclick="redirect(@item.Id)" class="btn btn-primary card_btn">View</button>
                         </div>
                     </div>
@@ -126,6 +127,17 @@
 
 
         <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Отримуємо елемент з ID "home"
+        var homeElement = document.getElementById("nav-link-orders");
+
+        // Перевіряємо, чи елемент існує
+        if (homeElement) {
+            // Додаємо клас "Active" до класів елемента
+            homeElement.classList.add("active");
+        }
+    });
+
             function redirect(id) {
                 window.location.href = ("/Order/Order/" + id);
             }

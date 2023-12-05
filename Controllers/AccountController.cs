@@ -101,6 +101,32 @@ namespace TrialFreelance.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> ShowUser(int id)
+        {
+            DbUser user = await userManager.FindByIdAsync(id.ToString());
+            if (user == null)
+            {
+                ViewBag.ErrorMessage = $"Користувача не знайдено";
+                return View("Error");
+            }
+
+
+            var model = new EditUserViewModel
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Messager = user.Messager,
+                Birthday = user.Birthday,
+                GitHubPageLink = user.GitHubPageLink,
+                FinishedOrders = user.FinishedOrders
+            };
+
+            return View(model);
+        }
+
+        [HttpGet]
         public async Task<IActionResult> ManageUser()
         {
             DbUser user = await userManager.GetUserAsync(User);

@@ -158,13 +158,20 @@ namespace TrialFreelance.Controllers
             }
         }
 
-        public IActionResult DeleteOrder(int Id)
+        public async Task<IActionResult> DeleteOrder(int Id)
         {
             var order = orderRepository.FindById(Id);
 
             if (order != null)
             {
+
                 orderRepository.Delete(order);
+                DbUser user = await userManager.FindByIdAsync(order.CreatorId.ToString());
+                if(user!= null)
+                {
+                    if(user.FinishedOrders>0)
+                    user.FinishedOrders--;
+                }
                 return RedirectToAction("OrdersList");
             }
             ViewBag.ErrorMessage = $"Замовлення з id = {Id} не знайдено";

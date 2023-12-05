@@ -1,1 +1,43 @@
-﻿
+﻿@model TrialFreelance.Models.OrderSolution
+
+<head>
+    <link rel="stylesheet" href="/css/simple_solution_style.css" type="text/css" />
+</head>
+<div class="main_field">
+    @if (@Model != null)
+    {
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item active text-secondary" aria-current="page">Solution</li>
+                <li class="breadcrumb-item"><a class="cut" href="/Order/Order/@Model.OrderId">Go to order</a></li>
+                </ol>
+            </nav>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title border-bottom border-secondary" style="padding: 5px;">
+                        <a href="/Account/ShowUser/@Model.CreatorId" class="nav-link link-light nav_user
+            link-underline-opacity-0
+            link-opacity-75-hover d-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                            </svg>
+
+                            <span style="padding-top:3px;">Show user</span>
+                        </a>
+                    </h5>
+                    <p class="card-text">
+                    <a href="@Model.GitHubLink">@Model.GitHubLink</a> <br>
+                        Кроки
+                    </p>
+                </div>
+            </div>
+    }
+    else
+    {
+
+        <div class="card">
+            <h2> Не знайдено такого рішення</h2>
+        </div>
+    }
+  </div>

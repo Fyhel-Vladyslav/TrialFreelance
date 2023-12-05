@@ -1,0 +1,33 @@
+﻿<style>
+    .divItem {
+        padding-left: 15px;
+        padding-top: 30px;
+        color:#fff;
+    }
+    h3{
+        color: #fff;
+    }
+    footer {
+        position: fixed !important;
+    }
+</style>
+
+<div style="margin-top:15%">
+    <h2 class="divItem">Ви можете зв'язатися з членами команди за телеграм тегом:</h2>
+    <h3>Backend developer #1: Фугель Владислав<a href="https://t.me/Valadij">https://t.me/Valadij</a></h3>
+    <h3>Frontend developer #1: Демʼянюк Дарина<a href="https://t.me/Valadij">https://t.me/dasha</a></h3>
+    <h3>Frontend developer #2: Авдейчук Дмитро <a href="https://t.me/Valadij">https://t.me/dima</a></h3>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Отримуємо елемент з ID "home"
+        var homeElement = document.getElementById("nav-link-about");
+
+        // Перевіряємо, чи елемент існує
+        if (homeElement) {
+            // Додаємо клас "Active" до класів елемента
+            homeElement.classList.add("active");
+        }
+    });
+</script>
