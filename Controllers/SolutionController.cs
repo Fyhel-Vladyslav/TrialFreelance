@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -26,7 +27,7 @@ namespace TrialFreelance.Controllers
             this.userManager = userManager;
             this.messageRepository = messageRepository;
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult SolutionsList()
         {
             if (User.IsInRole("Admin"))
@@ -34,7 +35,7 @@ namespace TrialFreelance.Controllers
 
             return View(solutionRepository.GetAllSolutions());
         }
-
+        [AllowAnonymous]
         public IActionResult Solution(int id)
         {
             if (User.IsInRole("Admin"))
@@ -45,6 +46,7 @@ namespace TrialFreelance.Controllers
             ViewBag.Error = "Такого замовлення не існує";
             return View("Error");
         }
+        [Authorize]
         [HttpGet]
         public IActionResult CreateSolution(int Id)
         {
@@ -55,6 +57,7 @@ namespace TrialFreelance.Controllers
             ViewBag.Error = "Такого замовлення не існує";
             return View("Error");
         }
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateSolution(OrderSolution model)
         {
@@ -77,6 +80,7 @@ namespace TrialFreelance.Controllers
             ViewBag.Error = "Такого замовлення не існує";
             return View("Error");
         }
+        [Authorize]
         public async Task<IActionResult> UserSolutions(int id = -1)
         {
             DbUser user;
@@ -96,7 +100,7 @@ namespace TrialFreelance.Controllers
             ViewBag.Error = "Користувача не знайдено або не автоизовано";
             return View("Error");
         }
-
+        [AllowAnonymous]
         public IActionResult OrderSolutions(int id)
         {
             
@@ -111,6 +115,7 @@ namespace TrialFreelance.Controllers
             ViewBag.Error = "Такого замовлення не знайдено або не існує";
             return View("Error");
         }
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult EditSolution(int id)
         {
@@ -130,7 +135,7 @@ namespace TrialFreelance.Controllers
             ViewBag.Error = "Такого замовлення не існує";
             return View("Error");
         }
-        [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult EditSolution(EditSolutionViewModel model)
         {
             if (ModelState.IsValid)
@@ -150,6 +155,7 @@ namespace TrialFreelance.Controllers
             }
             return View();
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult DeleteSolution(int id)
         {
             var solution = solutionRepository.FindById(id);

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TrialFreelance.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TrialFreelance.Controllers
 {
@@ -21,12 +22,13 @@ namespace TrialFreelance.Controllers
             this.signInManager = signInManager;
             this.roleManager = roleManager;
         }
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
-
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel Model)
         {
@@ -53,6 +55,7 @@ namespace TrialFreelance.Controllers
             ViewBag.Error = "Model is invalid";
             return View("Error");
         }
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Login()
         {
@@ -60,7 +63,7 @@ namespace TrialFreelance.Controllers
             TempData["ReturnUrl"] = ReturnUrl;
             return View();
         }
-
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel Model)
         {
@@ -71,7 +74,7 @@ namespace TrialFreelance.Controllers
                 if (identityResult.Succeeded)
                 {
                     if (Model.ReturnUrl == null || Model.ReturnUrl == "/")
-                        return RedirectToAction("OrdersList", "Order");
+                        return RedirectToAction("Index", "Site");
                     else
                         return Redirect(Model.ReturnUrl);
 
@@ -81,7 +84,7 @@ namespace TrialFreelance.Controllers
             return View();
         }
 
-
+        [Authorize]
         [HttpGet]
         public IActionResult Logout(string returnUrl = null)
         {
@@ -92,6 +95,7 @@ namespace TrialFreelance.Controllers
             ViewBag.returnUrl = returnUrl;
             return View();
         }
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
@@ -99,7 +103,7 @@ namespace TrialFreelance.Controllers
             await signInManager.SignOutAsync();
             return RedirectToAction("OrdersList", "Order");
         }
-
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> ShowUser(int id)
         {
@@ -125,7 +129,7 @@ namespace TrialFreelance.Controllers
 
             return View(model);
         }
-
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> ManageUser()
         {
@@ -151,7 +155,7 @@ namespace TrialFreelance.Controllers
 
             return View(model);
         }
-
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> ManageUser(EditUserViewModel model)
         {
@@ -190,6 +194,7 @@ namespace TrialFreelance.Controllers
 
 
         //Administration
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ListUsers(string id)
         {
             DbUser user = await userManager.FindByIdAsync(id);
@@ -197,7 +202,7 @@ namespace TrialFreelance.Controllers
             var users = userManager.Users;
             return View(users);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> EditUser(string id)
         {
@@ -236,7 +241,7 @@ namespace TrialFreelance.Controllers
 
             return View(model);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> EditUser(EditUserViewModel model)
         {
@@ -287,7 +292,7 @@ namespace TrialFreelance.Controllers
 
             return View(model);
         }
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteUser(string Id)
         {
             var role = await userManager.FindByIdAsync(Id);

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -24,6 +25,7 @@ namespace TrialFreelance.Controllers
             this.preOrderRepository = preOrderRepository;
             this.orderRepository = orderRepository;
         }
+        [AllowAnonymous]
         public IActionResult OrdersList()
         {
                 if (User.IsInRole("Admin"))
@@ -32,7 +34,7 @@ namespace TrialFreelance.Controllers
                 ViewBag.Role = "User";
             return View(preOrderRepository.GetAll());
         }
-
+        [AllowAnonymous]
         public IActionResult Order(int id)
         {
             var order = orderRepository.FindById(id);
@@ -45,7 +47,7 @@ namespace TrialFreelance.Controllers
 
             return View(order);
         }
-
+        [AllowAnonymous]
         public IActionResult UserOrders(int id=-1)
         {
             if (id == -1)
@@ -55,12 +57,20 @@ namespace TrialFreelance.Controllers
 
             return View(orders);
         }
-
+        [AllowAnonymous]
+        [HttpPost]
+        public IActionResult Search(string request)
+        {
+            var orders = preOrderRepository.SearchByName(request);
+            return View("OrdersList", orders);
+        }
+        [Authorize]
         [HttpGet]
         public IActionResult CreateOrder()
         {
             return View();
         }
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateOrder(CreateOrderViewModel model)
         {
@@ -96,7 +106,7 @@ namespace TrialFreelance.Controllers
         }
 
 
-
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult EditOrder(int id)
         {
@@ -126,7 +136,7 @@ namespace TrialFreelance.Controllers
 
             return View(model);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditOrder(EditOrderViewModel model)
         {
@@ -157,7 +167,7 @@ namespace TrialFreelance.Controllers
                 return RedirectToAction("OrdersList"); 
             }
         }
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteOrder(int Id)
         {
             var order = orderRepository.FindById(Id);

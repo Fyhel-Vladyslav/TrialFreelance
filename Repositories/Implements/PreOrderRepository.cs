@@ -25,7 +25,10 @@ namespace TrialFreelance.Repositories.Implements
         {
             return mapper.Map<PreOrderViewModel>(iOrderRepository.FindById(id)); 
         }
-
+        public List<PreOrderViewModel> SearchByName(string request)
+        {
+            return mapper.Map<List<PreOrderViewModel>>(iOrderRepository.SearchByName(request)); 
+        }
         public IEnumerable<PreOrderViewModel> GetAll()
         {
             return mapper.Map<IEnumerable<PreOrderViewModel>>(iOrderRepository.GetAll());

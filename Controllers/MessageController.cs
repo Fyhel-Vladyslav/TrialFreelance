@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql;
 using System;
@@ -27,6 +28,7 @@ namespace TrialFreelance.Controllers
             this.messageRepository = messageRepository;
             this.solutionRepository = solutionRepository;
         }
+        [Authorize]
         public async Task<IActionResult> UserMessages(int id = -1)
         {
             DbUser user;
@@ -62,6 +64,7 @@ namespace TrialFreelance.Controllers
             }
             return View("Error");
         }
+        [Authorize]
         [HttpPost]
         public bool SendMessage(Message model)
         {
@@ -88,7 +91,7 @@ namespace TrialFreelance.Controllers
             messageRepository.Add(message);
             return true;
         }
-
+        [Authorize]
         [HttpPost]
         public IActionResult SetMessageRead([FromBody] SetMessageReadModel model)
         {
@@ -110,6 +113,7 @@ namespace TrialFreelance.Controllers
             messageRepository.SetMessagesRead(list);
             return RedirectToAction("UserMessages");
         }
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult EditMessage(int id)
         {
@@ -132,6 +136,7 @@ namespace TrialFreelance.Controllers
             ViewBag.Error = "Такого повідомлення не існує";
             return View("Error");
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditMessage(MessageViewModel model)
         {
@@ -157,7 +162,7 @@ namespace TrialFreelance.Controllers
             ViewBag.Error = "Model is invalid";
             return View("Error");
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult DeleteMessage(int id)
         {
             var message = messageRepository.FindById(id);

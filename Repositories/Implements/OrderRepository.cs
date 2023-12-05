@@ -33,7 +33,10 @@ namespace TrialFreelance.Repositories.Implements
             dbCon.Orders.Remove(model);
             dbCon.SaveChanges();
         }
-
+        public List<Order> SearchByName(string request)
+        {
+            return dbCon.Orders.Where(p => p.Name == request).ToList();
+        }
         public Order FindById(int id)
         {
             return dbCon.Orders.Find(id);
