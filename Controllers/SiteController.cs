@@ -4,12 +4,12 @@ namespace TrialFreelance.Controllers
 {
     public class SiteController : Controller
     {
-        public IActionResult AboutUs()
+        public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult SiteMap()//not implement
+        public IActionResult AboutUs()
         {
             return View();
         }

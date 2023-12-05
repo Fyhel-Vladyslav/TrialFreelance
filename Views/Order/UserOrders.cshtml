@@ -1,87 +1,75 @@
 ﻿@using TrialFreelance.ViewModels;
+@using TrialFreelance.Enums;
 @model IEnumerable<PreOrderViewModel>
-@{
-    ViewData["Title"] = "Home Page";
-}
-<style>
 
-    .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #333;
-        color: #fff;
-        padding: 10px 0;
-        text-align: right;
-    }
+<link rel="stylesheet" href="/css/order_style.css" type="text/css" />
 
-    /* Стилі для замовлень */
-    .orders {
-        padding: 50px;
-    }
-
-    .order {
-        width: 100%;
-        display: flex;
-        border: 1px solid #ddd;
-        margin: 0;
-        padding: 20px;
-    }
-
-    .orderPart {
-        margin: 20px;
-        float: left;
-    }
-
-    .link_exist {
-        width: 8px;
-        height: 8px;
-    }
-
-    .exist_True {
-        background-color: green;
-    }
-
-    .exist_False {
-        background-color: red;
-    }
-
-    .difficulty_1 {
-        background-color: lightgreen;
-    }
-
-    .difficulty_2 {
-        background-color: yellow;
-    }
-
-    .difficulty_3 {
-        background-color: darkorange;
-    }
-
-    .difficulty_4 {
-        background-color: red;
-    }
-</style>
-
-
-<div class="orders" style="margin-top: 50px;">
-    <h1>Ваші Замовлення</h1>
-    @foreach (var item in Model)
+<div class="orders" style="margin-top:75px" id="orderCards">
+    @if(Model!= null)
     {
-        <!-- Перший блок замовлення -->
-        <div class="order">
-            <div class="orderPart" onclick="redirect(@item.Id)">
-            <h2>@item.Name</h2>
-            <div class="orderPart" style="width:60%">
-                @item.MainTask
+        @foreach (var item in Model)
+    {
+     <div class="order_card">
+        <div class="card_left">
+                <h1 class="card_header">@item.Name</h1>
+                
+            <div class="card_description">
+            @item.MainTask  
             </div>
+                <div class="card_helper">
+                    <p>Posted @item.PostDate</p>
+                    <div style="display: flex; flex-direction: row; margin-left: 50px;">
+                        @if (string.IsNullOrEmpty(item.DbLink))
+                        {
+                            <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 3px" width="18" height="18" fill="darkred" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+
+                                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1" />}
+                            </svg>
+                        }
+                        else
+                        {
+                            <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 3px" width="18" height="18" fill="forestgreen" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0" />}
+                            </svg>
+                        }
+                        <p style="font-weight: bold; margin-left: 5px;">Data Base</p>
+                    </div>
+                    <div style="display: flex; flex-direction: row; margin-left: 20px;">
+                        @if (string.IsNullOrEmpty(item.ExampleLink))
+                        {
+                            <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 3px" width="18" height="18" fill="darkred" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+
+                                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1" />}
+                            </svg>
+                        }
+                        else
+                        {
+                            <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 3px" width="18" height="18" fill="forestgreen" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0" />}
+                            </svg>
+                        }
+                        <p style="font-weight: bold; margin-left: 5px;">Reference</p>
+                    </div>
+                </div>
+                @if (ViewBag.Role == "Admin")
+                {
+                    <a class="btn btn-primary" asp-action="EditOrder" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="DeleteOrder" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                }
             </div>
-            <div class="orderPart">
-                <a asp-action="EditOrder" asp-route-id="@item.Id">Edit</a>
-                <a asp-action="DeleteOrder" asp-route-id="@item.Id">Delete</a>
+            <div class="card_right">
+                <div class="text_difficalty_@((Difficuties)item.Difficulty)">@((Difficuties)item.Difficulty)</div>
+                <button type="button" onclick="redirect(@item.Id)" class="btn btn-primary card_btn">View</button>
             </div>
         </div>
+    }
+
+    }
+    else
+    {
+    <div class="order_card ">
+        <div class="card-header"> Ще не створено замовлень </div>
+    </div>
     }
 </div>
 
@@ -91,3 +79,6 @@
         window.location.href = ("/Order/Order/" + id);
     }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>

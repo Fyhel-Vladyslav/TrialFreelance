@@ -1,0 +1,25 @@
+body{
+  background-color: #101414;
+  overflow: auto;
+}
+
+.card{
+  background-color: #21262d;
+  margin: 0 30px 0 30px;
+}
+
+.card-text{
+  color: #fff;
+}
+
+.main_field{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 80px;
+}
+
+.breadcrumb{
+margin: 0 0 10px 30px;
+padding: 2px;
+}

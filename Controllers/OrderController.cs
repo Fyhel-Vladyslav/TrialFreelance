@@ -28,6 +28,8 @@ namespace TrialFreelance.Controllers
         {
                 if (User.IsInRole("Admin"))
                     ViewBag.Role = "Admin";
+                else
+                ViewBag.Role = "User";
             return View(preOrderRepository.GetAll());
         }
 
@@ -60,26 +62,34 @@ namespace TrialFreelance.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult CreateOrder(CreateOrderViewModel model)
+        public async Task<IActionResult> CreateOrder(CreateOrderViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var order = new Order()
+                DbUser user = await userManager.GetUserAsync(User);
+                if (user != null)
                 {
-                    DbLink = model.DbLink,
-                    Description = model.Description,
-                    Difficulty = model.Difficulty,
-                    ExampleLink = model.ExampleLink,
-                    GitHubLink = model.GitHubLink,
-                    MainTask = model.MainTask,
-                    Name = model.Name,
-                    OwnerId = Int32.Parse(userManager.GetUserId(this.User)),
-                    SecondaryTasks = model.SecondaryTasks,
-                    Status = 1,
+                    var order = new Order()
+                    {
+                        DbLink = model.DbLink,
+                        Description = model.Description,
+                        Difficulty = model.Difficulty,
+                        ExampleLink = model.ExampleLink,
+                        GitHubLink = model.GitHubLink,
+                        MainTask = model.MainTask,
+                        Name = model.Name,
+                        OwnerId = Int32.Parse(userManager.GetUserId(this.User)),
+                        SecondaryTasks = model.SecondaryTasks,
+                        Status = 1,
+                        CreatorId = user.Id,
+                         PostDate = DateTime.Now.ToString("yyyy-MM-dd")
                 };
 
-                orderRepository.Add(order);
-                return RedirectToAction("UserOrders", "Order");
+                    orderRepository.Add(order);
+                    return RedirectToAction("UserOrders", "Order");
+                }
+                ViewBag.Error = "Користувача не знайдено";
+                return View("Error");
             }
             ViewBag.Error = "Model is invalid";
             return View("Error");
@@ -111,6 +121,7 @@ namespace TrialFreelance.Controllers
                 SecondaryTasks = order.SecondaryTasks,
                 Status = order.Status,
                 CreatorId = order.CreatorId,
+                PostDate = order.PostDate,
         };
 
             return View(model);
@@ -137,6 +148,7 @@ namespace TrialFreelance.Controllers
                 order.Name = model.Name;
                 order.OwnerId = model.OwnerId;
                 order.SecondaryTasks = model.SecondaryTasks;
+                order.PostDate = model.PostDate;
                 order.Status = model.Status;
                 order.CreatorId= model.CreatorId;
 
@@ -146,13 +158,20 @@ namespace TrialFreelance.Controllers
             }
         }
 
-        public IActionResult DeleteOrder(int Id)
+        public async Task<IActionResult> DeleteOrder(int Id)
         {
             var order = orderRepository.FindById(Id);
 
             if (order != null)
             {
+
                 orderRepository.Delete(order);
+                DbUser user = await userManager.FindByIdAsync(order.CreatorId.ToString());
+                if(user!= null)
+                {
+                    if(user.FinishedOrders>0)
+                    user.FinishedOrders--;
+                }
                 return RedirectToAction("OrdersList");
             }
             ViewBag.ErrorMessage = $"Замовлення з id = {Id} не знайдено";

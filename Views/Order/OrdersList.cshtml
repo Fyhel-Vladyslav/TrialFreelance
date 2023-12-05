@@ -1,118 +1,144 @@
 ﻿@using TrialFreelance.ViewModels;
+@using TrialFreelance.Enums;
 @model IEnumerable<PreOrderViewModel>
 @{
     ViewData["Title"] = "Home Page";
 }
-<style>
+<head>
+    <link rel="stylesheet" href="css/order_style.css" type="text/css" />
+</head>
 
-    .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #333;
-        color: #fff;
-        padding: 10px 0;
-        text-align: right;
-    }
-
-    /* Стилі для замовлень */
-    .orders {
-        padding: 50px;
-    }
-
-    .order {
-        width: 100%;
-        display: flex;
-        border: 1px solid #ddd;
-        margin: 0;
-        padding: 20px;
-    }
-
-    .orderPart {
-        margin: 20px;
-        float: left;
-    }
-
-    .link_exist {
-        width: 8px;
-        height: 8px;
-    }
-
-    .exist_True {
-        background-color: green;
-    }
-
-    .exist_False {
-        background-color: red;
-    }
-
-    .difficulty_1 {
-        background-color: lightgreen;
-    }
-
-    .difficulty_2 {
-        background-color: yellow;
-    }
-
-    .difficulty_3 {
-        background-color: darkorange;
-    }
-
-    .difficulty_4 {
-        background-color: red;
-    }
-
-    .mybtn {
-        border-style: solid;
-        width:100px;
-        float:left;
-        padding:10px;
-        margin:20px;
-        height:40px;
-        background-color: red;
-    }
-</style>
-
-
-<div class="orders" style="margin-top: 50px;">
-    <h1>Замовлення</h1>
-    @if (Model != null)
-    {
-        @foreach (var item in Model)
-        {
-            <!-- Перший блок замовлення -->
-            <div class="order" onclick="redirect(@item.Id)">
-                <h2>@item.Name</h2>
-                <div class="orderPart">
-                    <p class="difficulty_@item.Difficulty">Складність</p>
-                    <p class="exist_@string.IsNullOrEmpty(item.ExampleLink) link_exist"></p>Приклад
-                    <p class="exist_@string.IsNullOrEmpty(item.DbLink) link_exist"></p>База даних
-                    <p class="exist_@string.IsNullOrEmpty(item.GitHubLink) link_exist"></p>Приклад
-                </div>
-                <div class="orderPart" style="width:60%">
-                    @item.MainTask
-                </div>
-                @if (ViewBag.Role == "Admin")
-                {
-                    <div class="mybtn"><a href="/Order/EditOrder/@item.Id">Edit</a></div>
-                    <div class="mybtn"><a href="/Order/DeleteOrder/@item.Id">Delete</a></div>
-                }
+<div class="main_field">
+    <div class="filter">
+        <div class="prop">
+            <div class="input-group mb-3">
+                <input id="search_prop" type="text" class="form-control" placeholder="Search by title" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-success" type="button" id="button-addon2" onclick="FindByTitle()">Search</button>
             </div>
-        }
 
-    }
-    else
-    {
-        <div class="card ">
-            <div class="card-header"> Ще не створено замовлень </div>
+            <div class="prop_seperator"></div>
+
+            <div class="prop_header">Diffacalty:</div>
+            <ul style="list-style-type: none; margin: 0; padding-left: 10px;">
+                <li class="prop_option">
+                    <input class="form-check-input" type="checkbox" value="" id="cb_hard" style="accent-color: #282c2c;">
+                    <label class="form-check-label prop_label" for="flexCheckDefault">
+                        Hard
+                    </label>
+                </li>
+                <li class="prop_option">
+                    <input class="form-check-input" type="checkbox" value="" id="cb_normal">
+                    <label class="form-check-label prop_label" for="flexCheckDefault">
+                        Normal
+                    </label>
+                </li>
+                <li class="prop_option">
+                    <input class="form-check-input" type="checkbox" value="" id="cb_easy">
+                    <label class="form-check-label prop_label" for="flexCheckDefault">
+                        Easy
+                    </label>
+                </li>
+            </ul>
+            <button type="button" class="btn btn-secondary prop_btn_clear" onclick="Clear()">Clear</button>
+            <button type="button" class="btn btn-primary prop_btn_apply" onclick="FilterByDifficalty()">Apply</button>
         </div>
-    }
-</div>
+    </div>
+    <div class="orders" id="orderCards">
 
-<script>
-    function redirect(id)
-    {
-        window.location.href = ("/Order/Order/"+id);
-    }
-</script>
+
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <div class="order_card">
+                    <div>@((Statuses)item.Status)</div>
+                    <div class="card_left">
+                        <h1 class="card_header">@item.Name</h1>
+                        <a class="card_user" href="Account/ShowUser/@item.CreatorId" >Show owner</a>
+                        <div class="card_description">
+                            @item.MainTask
+                        </div>
+                        <div class="card_helper">
+                            <p>Posted @item.PostDate</p>
+                            <div style="display: flex; flex-direction: row; margin-left: 50px;">
+                                @if (string.IsNullOrEmpty(item.DbLink))
+                                {
+                                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 3px" width="18" height="18" fill="darkred" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+
+                                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1" />}
+                                    </svg>
+                                }
+                                else
+                                {
+                                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 3px" width="18" height="18" fill="forestgreen" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0" />}
+                                    </svg>
+                                }
+                                    <p style="font-weight: bold; margin-left: 5px;">Data Base</p>
+                                </div>
+                                <div style="display: flex; flex-direction: row; margin-left: 20px;">
+                                @if (string.IsNullOrEmpty(item.ExampleLink))
+                                {
+                                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 3px" width="18" height="18" fill="darkred" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+
+                                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1" />}
+                                    </svg>
+                                }
+                                else
+                                {
+                                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 3px" width="18" height="18" fill="forestgreen" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0" />}
+                                    </svg>
+                                }
+                                    <p style="font-weight: bold; margin-left: 5px;">Reference</p>
+                                </div>
+                            </div>
+                        @if (ViewBag.Role == "Admin")
+                        {
+                            <a class="btn btn-primary" asp-action="EditOrder" asp-route-id="@item.Id">Edit</a>
+                            <a asp-action="DeleteOrder" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                        }
+                    </div>
+                        <div class="card_right">
+                        <div class="text_difficalty_@((Difficuties)item.Difficulty)">@((Difficuties)item.Difficulty)</div>
+                            <button type="button" onclick="redirect(@item.Id)" class="btn btn-primary card_btn">View</button>
+                        </div>
+                    </div>
+                                }
+
+                }
+                else
+                {
+                <div class="order_card ">
+                    <div class="card-header"> Ще не створено замовлень </div>
+                </div>
+                }
+
+
+            </div>
+        </div>
+
+
+
+        <script src="order_script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+                crossorigin="anonymous"></script>
+
+
+        <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Отримуємо елемент з ID "home"
+        var homeElement = document.getElementById("nav-link-orders");
+
+        // Перевіряємо, чи елемент існує
+        if (homeElement) {
+            // Додаємо клас "Active" до класів елемента
+            homeElement.classList.add("active");
+        }
+    });
+
+            function redirect(id) {
+                window.location.href = ("/Order/Order/" + id);
+            }
+        </script>

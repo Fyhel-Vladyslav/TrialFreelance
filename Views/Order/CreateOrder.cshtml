@@ -3,7 +3,7 @@
 
 
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+@* <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <div class="container mt-5">
     <div class="row justify-content-center align-items-center">
         <div class="col-sm-12 col-md-12 col-lg-4">
@@ -56,4 +56,93 @@
             </form>
         </div>
     </div>
+</div> *@
+
+<head>
+    <link rel="stylesheet" href="/css/add_order_style.css" type="text/css" />
+
+</head>
+<div class="gradient">
+    <div class="back_btn">
+        <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 5px" width="16" height="16" fill="white" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+            <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+        </svg>
+        <p><a href="orders.html" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Back to orders</a></p>
+    </div>
+    <div class="main_form">
+        <p class="header_add_order">Add Order</p>
+        <form asp-action="CreateOrder" method="post">
+        <div class="input_box">
+            <label asp-for="@Model.Name" class="form-label lable_add_order">Title of order</label>
+                <input asp-for="@Model.Name" onfocus="ClearTitle()" onblur="CheckTitle()"
+                   data-bs-theme="dark" type="text" class="form-control" id="input_title" placeholder="Order name example">
+            <div id="titleHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
+        </div>
+        <div class="input_box">
+            <label asp-for ="@Model.Description" class="form-label lable_add_order">Description</label>
+                <textarea asp-for="@Model.Description" onblur="CheckDescription()" onclick="ClearDescription()"
+                      data-bs-theme="dark" class="form-control" id="input_ta_description" rows="2"></textarea>
+            <div id="descriptionHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
+        </div>
+        <div class="input_box">
+            <label asp-for="@Model.MainTask" class="form-label lable_add_order">Main Task</label>
+                <textarea asp-for="@Model.MainTask" onblur="CheckMainTask()" onclick="ClearMainTask()"
+                      data-bs-theme="dark" class="form-control" id="input_ta_main_task" rows="5"></textarea>
+            <div id="main_taskHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
+        </div>
+        <div class="input_box">
+            <label asp-for="@Model.SecondaryTasks" class="form-label lable_add_order">Secondary Task</label>
+                <textarea asp-for="@Model.SecondaryTasks" onblur="CheckSecondaryTask()" onclick="ClearSecondaryTask()"
+                      data-bs-theme="dark" class="form-control" id="input_ta_secondary_task" rows="3"></textarea>
+            <div id="secondary_taskHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
+        </div>
+        <div class="input_box">
+            <label asp-for="@Model.GitHubLink" class="form-label lable_add_order">Git Hub Link for project</label>
+                <input asp-for="@Model.GitHubLink" onblur="CheckGit()" onclick="ClearGit()"
+                   data-bs-theme="dark" type="text" class="form-control" id="input_git_link_register" placeholder="github.com/example">
+            <div  id="gitHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
+        </div>
+        <div class="input_box">
+            <label asp-for="@Model.ExampleLink" class="form-label lable_add_order">Reference link<span style="color: rgba(158, 158, 158, 0.5)">(not necessary)</span></label>
+                <input asp-for="@Model.ExampleLink" onfocus="" onblur=""
+                   data-bs-theme="dark" type="text" class="form-control" id="input_title_register" placeholder="example.com/example">
+            <div id="titleHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
+        </div>
+        <div class="input_box">
+            <label asp-for="@Model.DbLink" class="form-label lable_add_order">Data Base link<span style="color: rgba(158, 158, 158, 0.5)">(not necessary)</span></label>
+            <input asp-for="@Model.DbLink" onfocus="" onblur=""
+                   data-bs-theme="dark" type="text" class="form-control" id="input_title_register" placeholder="example.com/example">
+            <div id="dbHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
+        </div>
+        <div class="input_box" style="width: 90%;">
+            <label asp-for="@Model.Difficulty" class="form-label lable_add_order">Difficalty:</label>
+                <select asp-for="@Model.Difficulty" onchange="CheckDifficalty()" id="select_difficalty" style="width: 100%; margin-left: -3px; margin-top: 0px; color: rgb(158, 158, 158); font-weight: bold;" data-bs-theme="dark" class="form-select input_box" data-size="20" data-dropup-auto="false"
+                    aria-label="Default select example">
+                <option value="1" selected>Easy</option>
+                    <option value="2" selected>Normal</option>
+                <option value="3" selected>Middle</option>
+                    <option value="4">Hard</option>
+                    <option value="5">Unpossible</option>
+
+            </select>
+        </div>
+        <button type="submit" class="btn btn-outline-primary btn_add_order">Add Order</button>
+        </form>
+    </div>
 </div>
+
+
+
+<script src="/js/add_order_script.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Отримуємо елемент з ID "home"
+        var homeElement = document.getElementById("nav-link-create");
+
+        // Перевіряємо, чи елемент існує
+        if (homeElement) {
+            // Додаємо клас "Active" до класів елемента
+            homeElement.classList.add("active");
+        }
+    });
+</script>

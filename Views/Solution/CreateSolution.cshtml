@@ -1,0 +1,40 @@
+﻿@model OrderSolution
+
+<head>
+    <link rel="stylesheet" href="/css/add_solution_style.css" type="text/css" />
+
+</head>
+<body>
+    <div class="gradient">
+        <div class="back_btn">
+            <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 5px" width="16" height="16" fill="white" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+            </svg>
+            <p><a href="orders.html" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Back to orders</a></p>
+        </div>
+        <div class="main_form">
+            <p class="header_add_solution">Add Solution</p>
+            <form asp-action="CreateSolution" method="post">
+            <div class="input_box">
+                    <label asp-for="@Model.GitHubLink" class="form-label lable_add_solution">Git Hub Link for project</label>
+                    <input asp-for="@Model.GitHubLink" onblur="CheckGit()" onclick="ClearGit()"
+                       data-bs-theme="dark" type="github" class="form-control" id="input_git_link_register" placeholder="github.com/example">
+                <div id="gitHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
+            </div>
+            <div class="input_box">
+                    <label asp-for="@Model.Description" class="form-label lable_add_solution">Description</label>
+                    <textarea asp-for="@Model.Description" onblur="CheckDescription()" onclick="ClearDescription()"
+                          data-bs-theme="dark" class="form-control" id="input_ta_description" rows="8"></textarea>
+                <div id="descriptionHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
+            </div>
+                <input type="hidden" asp-for="@Model.OrderId" />
+            <button type="submit" class="btn btn-outline-primary btn_add_solution">Add Solution</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/add_solution_script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+</body>

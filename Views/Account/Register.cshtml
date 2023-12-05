@@ -3,7 +3,7 @@
 
 
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+@* <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <div class="container mt-5">
     <div class="row justify-content-center align-items-center">
         <div class="col-sm-12 col-md-12 col-lg-4">
@@ -31,4 +31,54 @@
             </form>
         </div>
     </div>
-</div>
+</div> *@
+<head>
+<link rel="stylesheet" href="/css/register_style.css" type="text/css" />
+</head>
+    <div class="gradient">
+        <div style="margin: 10px; margin-top: 0; padding-top: 10px; display: flex; flex-direction: row;">
+            <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 5px" width="16" height="16" fill="white" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+            </svg>
+            <p><a href="index.html" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Back to main</a></p>
+        </div>
+        <div class="main_form">
+            <p class="header_register">Register</p>
+            <div class="input_box" style="margin-top:100px; position: absolute;">
+            <label asp-for="@Model.Email" class="form-label lable_register">Email address</label>
+            <input onfocus="ClearEmail()" asp-for="@Model.Email" onblur="CheckEmail()"
+                       data-bs-theme="dark" type="email" class="form-control" id="input_email_register" placeholder="name@example.com">
+                <div id="emailHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
+            </div>
+            <div class="input_box" style="margin-top:200px; position: absolute;">
+            <label asp-for="@Model.UserName" class="form-label lable_register">Name</label>
+                <input onfocus="ClearName()" onblur="CheckName()"
+                   data-bs-theme="dark" asp-for="@Model.UserName" type="text" class="form-control" id="input_name_register" placeholder="some name">
+                <div id="nameHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
+            </div>
+            <div class="input_box" style="margin-top:300px; position: absolute;">
+            <label asp-for="@Model.GitHubPageLink" class="form-label lable_register">Git Hub</label>
+            <input asp-for="@Model.GitHubPageLink" onfocus="ClearGit()" onblur="CheckGit()"
+                       data-bs-theme="dark" type="text" class="form-control" id="input_git_name_register" placeholder="https://github.com/SomeName">
+                <div id="gitHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
+            </div>
+            <div class="input_box" style="margin-top:400px; position: absolute;">
+            <label asp-for="@Model.PhoneNumber" class="form-label lable_register">Phone number</label>
+            <input asp-for="@Model.PhoneNumber" onfocus="ClearPhone()" onblur="CheckPhone()"
+                       data-bs-theme="dark" type="tel" class="form-control" id="input_phone_register" placeholder="+380...">
+                <div id="phoneHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
+            </div>
+            <div class="input_box" style="margin-top:500px; position: absolute;">
+            <label asp-for="@Model.Password" class="form-label lable_register" >Password</label>
+            <input asp-for="@Model.Password" onblur="CheckPassword()" onfocus="ClearPassword()"
+                       data-bs-theme="dark" type="password" class="form-control" id="input_password_register" placeholder="Password" />
+                <div id="passwordHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
+            </div>
+            <button type="button" class="btn btn-outline-primary btn_register" style="margin-top:620px; position: absolute;">Register</button>
+        </div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>

@@ -31,23 +31,43 @@ namespace TrialFreelance.Controllers
         {
             if (User.IsInRole("Admin"))
                 ViewBag.Role = "Admin";
+
             return View(solutionRepository.GetAllSolutions());
         }
 
-
-        [HttpPost]
-        public async Task<IActionResult> CreateSolution(int orderId, string githubLink, string description)
+        public IActionResult Solution(int id)
         {
-            var order = orderRepository.FindById(orderId);
+            if (User.IsInRole("Admin"))
+                ViewBag.Role = "Admin";
+            var solution = solutionRepository.FindById(id);
+            if(solution!=null)
+            return View(solution);
+            ViewBag.Error = "Такого замовлення не існує";
+            return View("Error");
+        }
+        [HttpGet]
+        public IActionResult CreateSolution(int Id)
+        {
+            if (orderRepository.FindById(Id) != null)
+            {
+                return View(new OrderSolution { OrderId=Id});
+            }
+            ViewBag.Error = "Такого замовлення не існує";
+            return View("Error");
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateSolution(OrderSolution model)
+        {
+            var order = orderRepository.FindById(model.OrderId);
             if (order != null)
             {
                 DbUser user = await userManager.GetUserAsync(User);
                 if (user != null)
                 {
-                    var solution = new OrderSolution { CreatorId = user.Id, Description = description, GitHubLink = githubLink, OrderId = orderId };
+                    var solution = new OrderSolution { CreatorId = user.Id, Description = model.Description, GitHubLink = model.GitHubLink, OrderId = model.OrderId };
                     int solutionId = solutionRepository.Add(solution);
 
-                    messageRepository.Add(new Message { MesText=$"Дорогий {user.UserName}, для вашого замовлення створено нове рішення.", MesType=(int)MessageTypes.Solution, OrderId=orderId, PostDate=DateTime.Today.ToString(), UserId=user.Id, SolutionId= solutionId });
+                    messageRepository.Add(new Message { MesText=$"Дорогий {user.UserName}, для вашого замовлення створено нове рішення.", MesType=(int)MessageTypes.Solution, OrderId= model.OrderId, PostDate=DateTime.Today.ToString(), UserId=user.Id, SolutionId= solutionId });
                     user.FinishedOrders++;
                     await userManager.UpdateAsync(user);
 
@@ -133,11 +153,12 @@ namespace TrialFreelance.Controllers
         public IActionResult DeleteSolution(int id)
         {
             var solution = solutionRepository.FindById(id);
-
+            
             if (solution != null)
             {
+                int orderId = solution.OrderId;
                 solutionRepository.Delete(solution);
-                return RedirectToAction("UserSolutions");
+                return Redirect($"/Solution/OrderSolutions/{orderId}");
             }
             ViewBag.ErrorMessage = $"Замовлення з id = {id} не знайдено";
             return View("Error");

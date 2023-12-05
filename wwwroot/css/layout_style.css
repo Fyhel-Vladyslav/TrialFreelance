@@ -1,0 +1,41 @@
+
+
+body {
+    background-color: #101414;
+    display: flex;
+    justify-content: center;
+}
+
+.nav_user {
+    font-size: 18px;
+    font-weight: bold;
+    align-items: center;
+    /* border: 1px solid rgb(152, 152, 152);
+    border-radius: 5px; */
+    padding: 5px 20px;
+}
+
+.nav_body{
+    position: fixed;
+    z-index: 1;
+    top: 0px;
+    padding-left: 1%; 
+    padding-right: 2%; 
+    width: 100%;
+    background-color: #21262d;
+}
+
+.main_field{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 80px;
+}
+
+
+.message_name{
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
