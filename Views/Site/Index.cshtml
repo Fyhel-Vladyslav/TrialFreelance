@@ -1,6 +1,10 @@
 ﻿@{
     Layout = null;
 }
+@using Microsoft.AspNetCore.Identity
+@using TrialFreelance.Entities
+@inject SignInManager<DbUser> SignInManager
+@inject UserManager<DbUser> userManager
 <!doctype html>
 <html lang="en">
 
@@ -46,27 +50,74 @@
                             <a style="font-weight: bold;" class="nav-link" asp-area="" asp-controller="Order" asp-action="CreateOrder">+Add Order</a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="login">
+
+                    @if (SignInManager.IsSignedIn(User))
+                    {
                         <button onclick="location.href='/Message/UserMessages'" type="button"
-                                class="btn btn-outline-light position-relative dropdown-toggle"
-                                data-bs-toggle="dropdown" aria-expanded="false"
+                                class="btn btn-outline-light position-relative"
                                 style="font-weight: bold; margin-right: 100px;">
                             Message
-                            <span class="badge bg-secondary">New</span>
+                            @*  <span class="badge bg-secondary">New</span> *@
                         </button>
-                        <a href="login.html" class="nav-link link-light
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-area="" asp-controller="Account" asp-action="ListUsers" class="nav-link link-light
+                                        link-underline-opacity-0
+                                        link-opacity-75-hover d-flex"
+                               style="align-items: center; margin-right: 10px;">
+                                Користувачі
+                            </a>
+                            <a asp-area="" asp-controller="Solution" asp-action="SolutionsList" class="nav-link link-light
+                                            link-underline-opacity-0
+                                            link-opacity-75-hover d-flex"
+                               style="align-items: center; margin-right: 10px;">
+                                Рішення
+                            </a>
+                        }
+
+
+
+
+                        <a href="@Url.Action("Logout", "Account", new { returnUrl = Context.Request.Path })" class=" nav-link link-light
+                                        link-underline-opacity-0
+                                        link-opacity-75-hover d-flex"
+                           style="align-items: center; margin-right: 10px;">
+                            Logout
+                        </a>
+
+
+                        <a href="/Account/ManageUser" class="nav-link link-light nav_user
                             link-underline-opacity-0
-                            link-opacity-75-hover d-flex"
+                            link-opacity-75-hover d-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                            </svg>
+                            @{
+                                var userName = userManager.GetUserName(User);
+                                <span style="padding-top:3px;">@userName</span>
+                            }
+                        </a>
+
+
+                    }
+                    else
+                    {
+                        <a asp-area="" asp-controller="Account" asp-action="Login" class="nav-link link-light
+                                link-underline-opacity-0
+                                link-opacity-75-hover d-flex"
                            style="align-items: center; margin-right: 10px;">
                             Login
                         </a>
-                        <a href="register.html" class="nav-link link-light
-                            link-underline-opacity-0
-                            link-opacity-75-hover
-                            focus-ring-secondary py-1 px-2 border rounded-2">
+                        <a asp-area="" asp-controller="Account" asp-action="Register" class="nav-link link-light
+                                link-underline-opacity-0
+                                link-opacity-75-hover
+                                focus-ring-secondary py-1 px-2 border rounded-2">
                             Register
                         </a>
-                    </form>
+                    }
+
                 </div>
             </div>
         </nav>

@@ -6,12 +6,15 @@
 
 
 
-<div class="modal-dialog modal-dialog-centered" style="margin-top: 106px;">
+<div class="" style="margin-top: 106px; display:flex; flex-direction:column;">
     <div class="modal-header">
         <h3 class="modal-title" style="color:#fff">Are you sure you want to leave?</h3>
     </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-primary">No</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yes</button>
+    <div class="modal-footer" style="justify-content: center;">
+        <form method="post" asp-action="Logout" asp-controller="Account">
+            <button class="btn btn-secondary" type="submit">Yes</button>
+        </form>
+        <div type="button" class="btn btn-primary" style="margin:20px; font-size:18px; padding:10 10px;"><a href="@returnUrl" style="color:#fff;">No</a></div>
     </div>
 </div>
+

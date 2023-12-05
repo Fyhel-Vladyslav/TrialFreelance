@@ -43,11 +43,11 @@
             <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 5px" width="16" height="16" fill="white" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
                 <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
               </svg>
-            <p><a href="index.html" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Back to main</a></p>
+            <p><a href="/Home/Index" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Back to main</a></p>
         </div>
         <div class="main_form">
             <p class="header_login">Login</p>
-                        <form asp-action="Login" method="post">
+            <form asp-action="Login" method="post" style="    width: 100%; display: flex;flex-direction: column;align-items: center;">
             <div class="input_box">
                     <label class="form-label lable_login">Email address</label>
                         <input asp-for="@Model.Email" onfocus="ClearEmail()" onblur="CheckEmail()"
@@ -60,11 +60,11 @@
                     data-bs-theme="dark" type="password" class="form-control" id="input_password_login" placeholder="Password"/>
                 <div id="passwordHelp" class="form-text" style="color: #c7291e; margin-left: 15px;"></div>
             </div>
-                <div class ="input_box" style="margin-top:23px;">
+                <div class="input_box" style="margin-top:23px;    margin-left: 156px;">
                     <label class="lable_rememberme">Remember me?</label>
                     <input type="checkbox" asp-for="@Model.RememberMe" class="form-check-input" />
                 </div>
-                <button type="submit" class="btn btn-outline-primary btn_login" style="margin-top:30px;margin-left: 69px">Login</button>
+                <button type="submit" class="btn btn-outline-primary btn_login" style="margin-top:30px;">Login</button>
             </form>
         </div>
     </div>

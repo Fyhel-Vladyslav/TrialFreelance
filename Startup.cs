@@ -22,8 +22,6 @@ namespace TrialFreelance
         }
 
         public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -59,8 +57,7 @@ namespace TrialFreelance
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                     app.UseHsts();
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -74,7 +71,7 @@ namespace TrialFreelance
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Order}/{action=OrdersList}/{id?}");
+                    pattern: "{controller=Site}/{action=Index}/{id?}");
             });
             //Seeder.SeedDataAsync(app.ApplicationServices, env, this.Configuration);
 
