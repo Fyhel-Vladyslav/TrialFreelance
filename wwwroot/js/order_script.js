@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     var elements = Array.from(document.querySelectorAll('.order_card'));
-    var orders = document.getElementById("orderCards");
     var search_prop = document.getElementById("search_prop");
     var cb_unpossible = document.getElementById("cb_unpossible");
     var cb_hard = document.getElementById("cb_hard");
@@ -20,8 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let temp_options = [];
 
     function Clear() {
-        orders.innerHTML = "";
-        SetOrders();
         search_prop.value = "";
         cb_unpossible.checked = false;
         cb_hard.checked = false;

@@ -10,6 +10,7 @@ namespace TrialFreelance.Repositories.Interfaces
     {
         PreOrderViewModel FindById(int id);
         IEnumerable<PreOrderViewModel> GetAll();
+        public List<PreOrderViewModel> SearchByName(string request);
         IEnumerable<PreOrderViewModel> FindOrdersByUserId(int id);
     }
 }
