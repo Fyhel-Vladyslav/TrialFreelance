@@ -65,7 +65,65 @@ body{
     font-size: 14px;
     margin-bottom: 0px;
 }
+.text_difficalty_Unpossible {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(219, 4, 4);
+    border: 3px solid rgb(219, 4, 4);
+    width: fit-content;
+    padding: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 8px;
+}
 
+.text_difficalty_Hard {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(255, 110, 61);
+    border: 3px solid rgb(255, 110, 61);
+    width: fit-content;
+    padding: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 8px;
+}
+
+.text_difficalty_Normal {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(255, 242, 61);
+    border: 3px solid rgb(255, 242, 61);
+    width: fit-content;
+    padding: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 8px;
+}
+
+.text_difficalty_Middle {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(185, 125, 0);
+    border: 3px solid rgb(185, 125, 0);
+    width: fit-content;
+    padding: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 8px;
+}
+
+.text_difficalty_Easy {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(75, 185, 0);
+    border: 3px solid rgb(75, 185, 0);
+    width: fit-content;
+    padding: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 8px;
+}
 .text_difficalty_hard{
     font-size: 20px;
     font-weight: bold;

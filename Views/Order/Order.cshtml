@@ -178,7 +178,8 @@
         <div style="display: flex; flex-direction: row;">
             <div class="order_left">
                 <p class="data">11-12-2023</p>
-                <h1 class="title">Test Order</h1>
+            <div style="color:#fff">@((Statuses)Model.Status)</div>
+                <h1 class="title">@Model.Name</h1>
             <h2 class="user">
                 <span class="user_help">
                     <a href="/Account/ShowUser/@Model.CreatorId" class="nav-link link-light nav_user
@@ -195,7 +196,7 @@
             </h2>
             </div>
             <div class="order_right">
-            <div class="text_difficalty_normal">@((Difficuties)Model.Difficulty)</div>
+            <div class="text_difficalty_@((Difficuties)Model.Difficulty)">@((Difficuties)Model.Difficulty)</div>
             </div>
         </div>
         <div class="divider"></div>
@@ -247,4 +248,3 @@
             </div>
         </div>
     </div>
-    <script src="order_page_script.js"></script>
