@@ -58,14 +58,14 @@
     <link rel="stylesheet" href="/css/solution_style.css" type="text/css" />
 </head>
 <div class="main_field">
-    @if (@Model != null)
+    @if (@Model.Any())
     {
         <div class="accordion">
 
             @foreach (var sol in Model)
             {
                 <div class="contentBx">
-                    <div class="label">Order #@sol.Id<a href="@sol.GitHubLink">@sol.GitHubLink</a></div>
+                    <div class="label">Order #@sol.Id<a href="@sol.GitHubLink" style="margin-left:20px;">@sol.GitHubLink</a></div>
                     <div class="content">
                         <p>@sol.Description</p>
 
@@ -87,7 +87,7 @@
     else
     {
 
-        <div class="contentBx">
+        <div style="margin: 50px;color: #FFF;">
             <h2> Ще не створено рішень </h2>
         </div>
     }

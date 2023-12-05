@@ -82,7 +82,7 @@ namespace TrialFreelance.Controllers
                         SecondaryTasks = model.SecondaryTasks,
                         Status = 1,
                         CreatorId = user.Id,
-                         PostDate = DateTime.Now.ToString("yyyy-MM-dd")
+                         PostDate = DateTime.Now.ToString("dd-MM-yyyy")
                 };
 
                     orderRepository.Add(order);

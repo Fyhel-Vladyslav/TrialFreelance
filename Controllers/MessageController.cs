@@ -81,7 +81,7 @@ namespace TrialFreelance.Controllers
                 OrderId = model.OrderId,
                 MesText = model.MesText,
                 MesType = model.SolutionId == 0 ? (int)MessageTypes.System : (int)MessageTypes.Solution,
-                PostDate = DateTime.Now.ToString("yyyy-MM-dd"),
+                PostDate = DateTime.Now.ToString("dd-MM-yyyy"),
                 SolutionId = model.SolutionId
             };
 
@@ -149,7 +149,7 @@ namespace TrialFreelance.Controllers
                     message.isRead = model.isRead;
 
                     messageRepository.Update(message);
-                return RedirectToAction("UserSolutions");
+                return Redirect($"/Message/UserMessages/{message.UserId}");
             }
                 ViewBag.Error = "Такого повідомлення не існує";
                 return View("Error");
