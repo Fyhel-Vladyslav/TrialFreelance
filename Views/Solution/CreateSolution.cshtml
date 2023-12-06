@@ -14,7 +14,7 @@
         </div>
         <div class="main_form">
             <p class="header_add_solution">Add Solution</p>
-            <form asp-action="CreateSolution" method="post">
+            <form asp-action="CreateSolution" style="display:flex; flex-direction:column;align-items: center; width:100%;" method="post">
             <div class="input_box">
                     <label asp-for="@Model.GitHubLink" class="form-label lable_add_solution">Git Hub Link for project</label>
                     <input asp-for="@Model.GitHubLink" onblur="CheckGit()" onclick="ClearGit()"

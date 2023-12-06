@@ -84,7 +84,7 @@ namespace TrialFreelance.Controllers
                 OrderId = model.OrderId,
                 MesText = model.MesText,
                 MesType = model.SolutionId == 0 ? (int)MessageTypes.System : (int)MessageTypes.Solution,
-                PostDate = DateTime.Now.ToString("dd-MM-yyyy"),
+                PostDate = DateTime.Now.ToString(),
                 SolutionId = model.SolutionId
             };
 

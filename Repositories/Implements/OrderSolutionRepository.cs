@@ -61,10 +61,15 @@ namespace TrialFreelance.Repositories.Implements
                 solutionViewModels = mapper.Map<IEnumerable<OrderSolutionViewModel>>(dbCon.OrderSolutions).Where(p => p.OrderId == id).ToList();
             else
              solutionViewModels = mapper.Map<IEnumerable<OrderSolutionViewModel>>(dbCon.OrderSolutions).ToList();
-            
-            for (int i = 0; i < solutionViewModels.Count(); i++)
-                solutionViewModels[i].CreatorUserName = dbCon2.Users.Find(solutionViewModels[i].CreatorId).UserName;
 
+            for (int i = 0; i < solutionViewModels.Count(); i++)
+            {
+                var user = dbCon2.Users.Find(solutionViewModels[i].CreatorId);
+                if (user != null)
+                    solutionViewModels[i].CreatorUserName = user.UserName;
+                else
+                    solutionViewModels[i].CreatorUserName = "username";
+            }
             return solutionViewModels;
         }
 
