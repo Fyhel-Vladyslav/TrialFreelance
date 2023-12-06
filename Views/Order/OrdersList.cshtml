@@ -21,6 +21,7 @@
                     <input id="search_prop" type="text" name="request"  class="form-control" placeholder="Search by title" aria-label="Recipient's username" aria-describedby="button-addon2" list="list">
                     <button class="btn btn-success" style="    margin-top: 10px;" type="submit" id="button-addon2" onclick="FindByTitle()">Search</button>
                 </form>
+                <a class="btn btn-secondary" style="margin-left: 80px;border-radius: 5px;margin-top: -38px;" href="/Order/OrdersList">View All Orders</a>
                 <datalist id="list">
                     @if (Model.Any())
                         @foreach (var option in Model)
@@ -83,7 +84,7 @@
                     <div style="color:#fff; margin:5px;">@((Statuses)item.Status)</div>
                     <div class="card_left">
                         <h1 class="card_header">@item.Name</h1>
-                        <a class="card_user" href="Account/ShowUser/@item.CreatorId">Show owner</a>
+                        <a class="card_user" href="/Account/ShowUser/@item.CreatorId">Show owner</a>
                         <div class="card_description">
                             @item.MainTask
                         </div>

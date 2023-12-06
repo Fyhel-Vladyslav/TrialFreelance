@@ -13,7 +13,7 @@
     </div>
     <div class="main_form">
         <p class="header_add_order">Add Order</p>
-        <form asp-action="CreateOrder" method="post">
+        <form asp-action="CreateOrder" style="display:flex; flex-direction:column;align-items: center; width:100%;" method="post">
         <div class="input_box">
             <label asp-for="@Model.Name" class="form-label lable_add_order">Title of order</label>
                 <input asp-for="@Model.Name" onfocus="ClearTitle()" onblur="CheckTitle()"

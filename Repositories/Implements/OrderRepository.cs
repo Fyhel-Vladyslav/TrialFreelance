@@ -44,7 +44,8 @@ namespace TrialFreelance.Repositories.Implements
 
         public IEnumerable<Order> GetAll()
         {
-            return dbCon.Orders;
+            var orders = dbCon.Orders;
+            return orders;
         }
 
         public List<string> GetNames()

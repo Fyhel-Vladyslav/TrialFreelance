@@ -1,19 +1,25 @@
 ﻿@model List<TrialFreelance.ViewModels.OrderSolutionViewModel>
 
-
 <head>
     <link rel="stylesheet" href="/css/solution_style.css" type="text/css" />
 </head>
 <div class="main_field">
     @if (@Model.Any())
     {
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/Account/ShowUser/@Model.FirstOrDefault().CreatorId">User</a></li>
+                <li class="breadcrumb-item active text-secondary" aria-current="page">Solution</li>
+            </ol>
+        </nav>
         <div class="accordion">
 
             @foreach (var sol in Model)
             {
                 <div class="contentBx">
-                    <div class="label">Order #@sol.Id<a href="@sol.GitHubLink" style="margin-left:20px;">@sol.GitHubLink</a></div>
+                    <div class="label">@sol.CreatorUserName <a href="@sol.GitHubLink">@sol.GitHubLink</a></div>
                     <div class="content">
+                        
                         <p>@sol.Description</p>
 
                         <div class="d-flex flex-row-reverse">
@@ -33,9 +39,10 @@
     }
     else
     {
-
         <div style="margin: 50px;color: #FFF;">
             <h2> Ще не створено рішень </h2>
         </div>
     }
+    <script src="/js/solution_script.js"></script>
+
 </div>
