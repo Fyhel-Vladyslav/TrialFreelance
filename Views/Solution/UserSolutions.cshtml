@@ -1,59 +1,6 @@
 ﻿@model List<TrialFreelance.ViewModels.OrderSolutionViewModel>
 
-@*     <style>
-        .item{
-            width:90%;
-            justify-content:center;
-        background-color: #ebebf0;
-        min-height: 60px;
-        margin: 10px;
-        }
-        .name{
-            height:50px;
-            float:left;
-        background-color: #d5d5de;
-        border-radius:5px;
-        padding:5px;
-        }
 
-    .link {
-        float: left;
-        background-color: #d5d5de;
-        border-radius: 5px;
-        padding: 5px;
-        margin: 5px;
-    }
-
-    .mybtn{
-        float: left;
-        background-color: #d5d5de;
-        border-radius: 5px;
-        margin: 5px;
-    }
-    </style>
-
-    @if(@Model!=null)
-    {
-    @foreach(var sol in Model)
-    {
-        <div class="item">
-            <div class="info name">@sol.OrderId</div>
-            <div class="info link">@sol.Description</div>
-            @if (ViewBag.Role == "Admin")
-            {
-                <div class="mybtn"><a href="/Solution/EditSolution/@sol.Id">Edit</a></div>
-                <div class="mybtn"><a href="/Solution/DeleteSolution/@sol.Id">Delete</a></div>
-            }
-        </div>
-    }
-    }
-    else
-{
-
-<div class="item">
-        <h2> Ще не створено рішень </h2>
-    </div>
-} *@
 <head>
     <link rel="stylesheet" href="/css/solution_style.css" type="text/css" />
 </head>

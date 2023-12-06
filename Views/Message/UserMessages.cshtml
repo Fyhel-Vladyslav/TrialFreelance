@@ -8,30 +8,8 @@
     <link rel="stylesheet" href="/css/message_style.css" />
 </head>
 
-@if (@Model != null)
+@if (@Model.Any())
 {
-    @*     @foreach(var mes in Model)
-    {
-        <div class="message">
-            <div class="source">@mes.SolutionId</div>
-            <div class="mesText">@mes.MesText</div>
-            <div class="mesText">@mes.isRead</div>
-            @if (ViewBag.Role == "Admin")
-            {
-                <div class="mybtn"><a href="/Message/EditMessage/@mes.Id">Edit</a></div>
-                <div class="mybtn"><a href="/Message/DeleteMessage/@mes.Id">Delete</a></div>
-            }
-            <form asp-action="SetMessageRead" method="post">
-                <input type="hidden" value="@mes.Id" name="id"/>
-                <button type="submit" style="float:left; margin:10px; padding:10px;">Позначити як прочитане</button>
-            </form>
-        </div>
-    }
-    <form asp-action="SetMessageRead" method="post">
-        <input type="hidden" value="@Model.FirstOrDefault().UserId" name="id" />
-        <input type="hidden" value="true" name="setAllRead" />
-        <button type="submit">Позначити всі як прочитані</button>
-    </form> *@
 
     <div class="main_field">
         <h1 class="title">My messages</h1>

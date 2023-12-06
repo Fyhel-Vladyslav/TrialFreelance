@@ -5,21 +5,21 @@
     ViewBag.Title = "All Users";
 }
 
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
-<h1>All Users</h1>
-<div style="display:flex; flex-direction:column;">
+
+<div style="display:flex; flex-direction:column; margin-top:70px;color:#fff;">
+    <h1>All Users</h1>
 @if (Model.Any())
 {
     foreach (var user in Model)
     {
         <div style="margin-bottom:50px;">
             <div class="card mb-3">
-                <div class="card-header">
+                    <div style="color:#fff; background-color:#101414" class="card-header">
                     <h5 class="card-title">@user.UserName</h5>
                 </div>
             </div>
-            <div class="card-body">
+                <div class="card-body">
                 User Id: @user.Id
             </div>
                 <div class="card-footer" style="display:flex; flex-direction:row;">
